@@ -2,7 +2,7 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://HOP3N.github.io/parcel-project-template",
+  "homepage": "https://HOP3N.github.io/group1-news-js-project",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /group1-news-js-project/"

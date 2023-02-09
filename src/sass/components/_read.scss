@@ -1,4 +1,52 @@
-.accordeon {
-  height: 21px;
-  opacity: 2px red;
+details {
+  padding: 20px 16px;
+}
+.content {
+  padding: 28px 0;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+summary::-moz-list-bullet {
+  list-style-type: none;
+}
+summary::marker {
+  display: none;
+}
+summary {
+  border-bottom: 1px solid #929292;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  position: relative;
+}
+summary:after {
+  color: transparent;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTYuNTkgOC41OUwxMiAxMy4xNyA3LjQxIDguNTkgNiAxMGw2IDYgNi02eiIvPjxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=')
+    no-repeat 50% 50% / 1em 1em;
+  width: 15px;
+  height: 25px;
+  content: '';
+  margin-left: 8px;
+  transition: transform 0.5s;
+}
+details[open] > summary:after {
+  transform: scale(1, -1);
+}
+summary ~ * {
+  padding: 0 1em 10px 1.4em;
+}
+details[open] summary ~ * {
+  animation: sweep 0.5s ease-in-out;
+}
+@keyframes sweep {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

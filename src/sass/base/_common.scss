@@ -1,67 +1,27 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-body {
-  font-family: 'Manrope', sans-serif;
-  // font-family: 'Poppins', sans-serif;
-  background-color: var(--body-color);
-  color: var(--text-color);
-  font-size: 16px;
-  line-height: calc(22 / 16);
-}
-
 .container {
   padding: 0 16px;
   margin: 0 auto;
-  @media screen and(min-width: var(--mobile)) {
+  @media screen and(min-width: $mobile) {
     width: 480px;
   }
-
-  @media screen and(min-width: var(--tablet)) {
+  @media screen and(min-width: $tablet) {
     width: 768px;
   }
-
-  @media screen and(min-width: var(--desktop)) {
+  @media screen and(min-width: $desktop) {
     width: 1280px;
   }
 }
-
 section {
   padding-top: 40px;
   padding-bottom: 60px;
-  @media screen and(min-width: var(--tablet)) {
+  @media screen and(min-width: $tablet) {
     padding-top: 48px;
     padding-bottom: 100px;
   }
-
-  @media screen and(min-width: var(--desktop)) {
+  @media screen and(min-width: $desktop) {
     padding-top: 60px;
     padding-bottom: 150px;
   }
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
 }

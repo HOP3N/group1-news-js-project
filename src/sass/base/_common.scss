@@ -1,5 +1,27 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
-body {
-    font-family: 'Manrope', sans-serif;
-// font-family: 'Poppins', sans-serif;
+
+.container {
+  padding: 0 16px;
+  margin: 0 auto;
+  @media screen and(min-width: $mobile) {
+    width: 480px;
+  }
+  @media screen and(min-width: $tablet) {
+    width: 768px;
+  }
+  @media screen and(min-width: $desktop) {
+    width: 1280px;
+  }
+}
+section {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  @media screen and(min-width: $tablet) {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+  @media screen and(min-width: $desktop) {
+    padding-top: 60px;
+    padding-bottom: 150px;
+  }
 }

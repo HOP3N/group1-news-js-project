@@ -1,0 +1,20 @@
+:root {
+    /* Colors */
+    --body-color: #F4F4F4;
+    --text-color: #111321;
+    --text-color-light: #A8A8A8;
+    --accent-color: #4440F6;
+    --white-color: #FFFFFF;
+    --footer-color: #7A7A7A;
+    --green-color: #00DD73;
+    --dark-theme-name-color: #5F6775;
+    --filter-container-background-color: #F8F8F8;
+    /* Dark theme */
+    body.darkMode {
+        --body-color: #2E2E2E;
+        --text-color: #F4F4F4;
+    }
+}
+$mobile: 479.98px;
+$tablet: 767.98px;
+$desktop: 1279.98px;

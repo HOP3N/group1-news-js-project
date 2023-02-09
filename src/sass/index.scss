@@ -1,3 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins&display=swap'); 
 @import '../sass/base/common';
-@import './example';
+@import '../sass/base/normalize';
+@import '../sass/components/favorite';
+@import '../sass/components/footer';
+@import '../sass/components/header';
+@import '../sass/components/home';
+@import '../sass/components/read';
+@import '../sass/utils/vars';
+// @import '../sass/utils/example';

@@ -18,6 +18,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "calendar-dates": "^2.7.2",
+    "flatpickr": "^4.6.13",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {

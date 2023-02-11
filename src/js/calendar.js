@@ -9,7 +9,7 @@ const filterSection = document.querySelector('.filter-section');
 // const newsListEl = document.querySelector('.news-list');
 const sectionPaginationEl = document.querySelector('.pagination');
 
-const API_KEY = 'B0nM5YVwVGPOQpaqXoXzd3AxL5Kpg75H';
+const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 let keyword;
 let order = 1;
 

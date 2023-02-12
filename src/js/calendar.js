@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-// import imgOps from '../img/main/img-ds.png'; треба додати картинку яка відображає що нічого не знайдено
+import imgOps from '../img/main/img-ds.png';
 import svg from '../images/sprite.svg';
 
 const dateInputEl = document.querySelector('#datetime-picker');

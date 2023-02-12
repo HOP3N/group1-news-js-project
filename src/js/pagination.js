@@ -9,6 +9,12 @@ const tabletWidth = 768;
 
 let news = [];
 
+const localNews = [];
+
+for (let i = 0; i < 8 * 20; i++) {
+    localNews.push(i);
+};
+
 loadNews()
   .then(data => data.results)
   .then(results => {
@@ -19,7 +25,7 @@ loadNews()
     const result = {
       currentPage: 1,
       numLinksTwoSide: 1,
-      totalPages: Math.ceil(data / valuePage.perPage) || 1,
+      totalPages: Math.ceil(localNews / valuePage.perPage) || 1,
       perPage: 4,
     };
 
@@ -31,7 +37,7 @@ loadNews()
       result.perPage = 8;
     }
 
-    result.totalPages = Math.ceil(data.length / result.perPage);
+    result.totalPages = Math.ceil(localNews.length / result.perPage);
 
     pg.innerHTML = '';
     pagination(result.totalPages);
@@ -61,7 +67,7 @@ const calcPaginationData = (object) => {
     perPage = 8;
   }
 
-  const totalPages = Math.ceil(news.length / perPage);
+  const totalPages = Math.ceil(localNews.length / perPage);
 
   return {
     ...object,
@@ -103,7 +109,7 @@ function pagination(totalPages) {
 
   let render = '';
   let renderTwoSide = '';
-  let dot = `<li class="pg-item"><a classs="pg-link">...</a></li>`;
+  let dot = `<li class="pg-item pg-item--dot"><a classs="pg-link">...</a></li>`;
   let countTruncate = 0;
 
   const numberTruncateLeft = currentPage - delta;

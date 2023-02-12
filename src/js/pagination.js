@@ -1,35 +1,65 @@
 import { loadNews } from './api.js';
 const deviceWidth = +window.innerWidth;
-
-const pg = document.getElementById('pagination');
+const pg = document.querySelector('.pagination');
 const btnNextPg = document.querySelector('button.next-page');
 const btnPrevPg = document.querySelector('button.prev-page');
 
+const mobileWidth = 480;
+const tabletWidth = 768;
+
+let news = [];
+
+loadNews()
+  .then(data => data.results)
+  .then(results => {
+    news = results;
+    return news;
+  })
+  .then(data => {
+    const result = {
+      currentPage: 1,
+      numLinksTwoSide: 1,
+      totalPages: Math.ceil(data / valuePage.perPage) || 1,
+      perPage: 4,
+    };
+
+    if (deviceWidth <= mobileWidth) {
+      result.perPage = 4;
+    } else if (deviceWidth > mobileWidth && deviceWidth <= tabletWidth) {
+      result.perPage = 7;
+    } else {
+      result.perPage = 8;
+    }
+
+    result.totalPages = Math.ceil(data.length / result.perPage);
+
+    pg.innerHTML = '';
+    pagination(result.totalPages);
+
+    return result;
+  })
+  .then(modifiedData => (valuePage = modifiedData))
+  .then(pageData => pagination(pageData.totalPages));
 
 window.addEventListener('resize', () => {
-  console.log('resizing!');
-  console.log(pg.innerHTML);
-  valuePage = calcPaginationData(
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-    valuePage
-  );
+
+  valuePage = calcPaginationData(valuePage);
+  console.log(valuePage);
 
   pg.innerHTML = '';
   pagination(valuePage.totalPages);
 });
 
-const calcPaginationData = (news, object) => {
+const calcPaginationData = (object) => {
   let perPage = 0;
   const deviceWidth = +window.innerWidth;
-  if (deviceWidth <= 480) {
-    perPage = 5;
-  } else if (deviceWidth > 480 && deviceWidth <= 768) {
-    perPage = 8;
+  if (deviceWidth <= mobileWidth) {
+    perPage = 4;
+  } else if (deviceWidth > mobileWidth && deviceWidth <= tabletWidth) {
+    perPage = 7;
   } else {
-    perPage = 9;
+    perPage = 8;
   }
-
-  console.log(perPage, news);
 
   const totalPages = Math.ceil(news.length / perPage);
 
@@ -43,41 +73,14 @@ const calcPaginationData = (news, object) => {
 let valuePage = {
   currentPage: 1,
   numLinksTwoSide: 1,
-  totalPages: 10,
-  perPage: 5,
+  totalPages: 0,
+  perPage: 4,
+  
 };
-
-const news = loadNews()
-  .then(data => data.results)
-  .then(data => {
-    const result = {
-      currentPage: 1,
-      numLinksTwoSide: 1,
-      totalPages: Math.ceil(news / valuePage.perPage) || 0,
-      perPage: 5,
-    };
-    if (deviceWidth <= 480) {
-      result.perPage = 5;
-    } else if (deviceWidth > 480 && deviceWidth <= 768) {
-      result.perPage = 8;
-    } else {
-      result.perPage = 9;
-    }
-
-    console.log(data, '<<<');
-    result.totalPages = Math.ceil(data.length / result.perPage);
-
-    pg.innerHTML = '';
-    pagination(result.totalPages);
-
-    return result;
-  })
-  .then(modifiedData => (valuePage = modifiedData))
-  .then(console.log);
 
 // let itemsPerPage = 0;
 
-// pagination();
+pagination(valuePage.totalPages);
 pg.addEventListener('click', e => {
   const ele = e.target;
 
@@ -85,8 +88,8 @@ pg.addEventListener('click', e => {
     const pageNumber = parseInt(e.target.dataset.page, 10);
 
     valuePage.currentPage = pageNumber;
-    pagination(valuePage);
-    // console.log(valuePage);
+    pagination(valuePage.totalPages);
+
     handleBtnLeft();
     handleBtnRight();
   }
@@ -94,6 +97,7 @@ pg.addEventListener('click', e => {
 
 function pagination(totalPages) {
   const { currentPage, numLinksTwoSide: delta } = valuePage;
+  // console.log('pagination render', totalPages)
 
   const range = delta + 4;
 
@@ -108,6 +112,7 @@ function pagination(totalPages) {
   let active = '';
   for (let p = 1; p <= totalPages; p++) {
     active = p === currentPage ? 'active' : '';
+
     if (totalPages >= 2 * range - 1) {
       if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {
         if (p >= numberTruncateLeft && p <= numberTruncateRight) {
@@ -115,10 +120,10 @@ function pagination(totalPages) {
         }
       } else {
         if (
-          (currentPage < range && p <= range) ||
-          (currentPage > totalPages - range && p >= totalPages - range + 1) ||
-          p === totalPages ||
-          p === 1
+          (currentPage < range && p <= range)
+          || (currentPage > totalPages - range && p >= totalPages - range + 1)
+          || p === totalPages
+          || p === 1
         ) {
           render += renderPage(p, active);
         } else {
@@ -139,8 +144,11 @@ function pagination(totalPages) {
   }
 }
 function renderPage(index, active = '') {
-  return `<li class="pg-item ${active}" data-page="${index}">
-    <a class="pg-link" href="#">${index}</a></li>`;
+  return `
+    <li class="pg-item ${active}" data-page="${index}">
+      <a class="pg-link" href="#">${index}</a>
+    </li>
+  `;
 }
 
 document
@@ -150,17 +158,18 @@ document
   });
 
 function handleButton(element) {
-  if (element.classList.contains('prev-page')) {
+  if (element.classList.contains('prev-page' && 'btn-prev')) {
     valuePage.currentPage--;
     handleBtnLeft();
     btnNextPg.disabled = false;
-  } else if (element.classList.contains('next-page')) {
+  } else if (element.classList.contains('next-page' && 'btn-next')) {
     valuePage.currentPage++;
     handleBtnRight();
     btnPrevPg.disabled = false;
   }
   pagination(valuePage.totalPages);
 }
+
 function handleBtnLeft() {
   if (valuePage.currentPage === 1) {
     btnPrevPg.disabled = true;
@@ -168,6 +177,7 @@ function handleBtnLeft() {
     btnPrevPg.disabled = false;
   }
 }
+
 function handleBtnRight() {
   if (valuePage.currentPage === valuePage.totalPages) {
     btnNextPg.disabled = true;
@@ -175,3 +185,11 @@ function handleBtnRight() {
     btnNextPg.disabled = false;
   }
 }
+
+
+/* 
+1. если у нас больше 5 страниц и вы на первой или второй
+[<1>] [2] [3] [.] [last]
+
+1.1. 
+*/

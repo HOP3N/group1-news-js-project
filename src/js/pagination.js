@@ -7,6 +7,25 @@ const btnPrevPg = document.querySelector('button.prev-page');
 const mobileWidth = 480;
 const tabletWidth = 768;
 
+const loaderElement = document.createElement('div');
+loaderElement.innerHTML = `
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+`;
+
+function appendLoader() {
+    console.log('loader added');
+    document.body.append(loaderElement);
+}
+
+function removeLoader() {
+    const element = document.querySelector('.loader-container');
+    console.log(element, 'loader removed');
+    loaderElement.remove();
+}
+
+
 let news = [];
 
 const localNews = [];
@@ -14,9 +33,12 @@ const localNews = [];
 for (let i = 0; i < 8 * 20; i++) {
     localNews.push(i);
 };
-
+        appendLoader();
 loadNews()
-  .then(data => data.results)
+    .then(data => {
+
+        return data.results;
+    })
   .then(results => {
     news = results;
     return news;
@@ -45,7 +67,10 @@ loadNews()
     return result;
   })
   .then(modifiedData => (valuePage = modifiedData))
-  .then(pageData => pagination(pageData.totalPages));
+    .then(pageData => {
+        removeLoader();
+        pagination(pageData.totalPages)
+    });
 
 window.addEventListener('resize', () => {
 
@@ -109,7 +134,7 @@ function pagination(totalPages) {
 
   let render = '';
   let renderTwoSide = '';
-  let dot = `<li class="pg-item pg-item--dot"><a classs="pg-link">...</a></li>`;
+  let dot = `<li class="pg-item pg-item--dot"><a class="pg-link">...</a></li>`;
   let countTruncate = 0;
 
   const numberTruncateLeft = currentPage - delta;
@@ -194,8 +219,4 @@ function handleBtnRight() {
 
 
 /* 
-1. если у нас больше 5 страниц и вы на первой или второй
-[<1>] [2] [3] [.] [last]
-
-1.1. 
 */

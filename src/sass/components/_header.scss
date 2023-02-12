@@ -1,0 +1,275 @@
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--body-color);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+  @media screen and (min-width: $tablet) {
+    align-items: baseline;
+  }
+}
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: Manrope;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 768px;
+    margin-right: 48px;
+    font-size: 32px;
+  }
+  @media screen and(min-width: $desktop) {
+    margin-right: 102px;
+    font-size: 42px;
+  }
+}
+
+.nav__list {
+  list-style: none;
+  display: none;
+  padding: 0;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 768px;
+    margin-right: 32px;
+    display: flex;
+  }
+
+  @media screen and(min-width: $desktop) {
+    margin-right: 140px;
+  }
+}
+
+.nav__item:not(:last-child) {
+  @media screen and (min-width: $tablet) {
+    margin-right: 44px;
+  }
+  @media screen and(min-width: $desktop) {
+    margin-right: 69px;
+  }
+}
+
+.nav__link {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  font-family: Manrope;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  color: #111321;
+  cursor: pointer;
+}
+
+.nav__link--current::after {
+  content: '';
+  width: 100%;
+  border: 1px solid #4440f7;
+  background-color: rgba(68, 64, 246, 1);
+  position: absolute;
+  top: 35px;
+  left: 0;
+  // bottom:1px;
+}
+
+.search-container {
+  position: relative;
+  margin-right: 14px;
+  transition: 0.5s;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 24px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 147px;
+  }
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-input {
+  opacity: 0;
+  width: 173px;
+  height: 31px;
+
+  padding-left: 48px;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(21 / 12);
+
+  background-color: transparent;
+  border: 1px solid #111321;
+  border-radius: 20px;
+  outline: none;
+
+  @media screen and (min-width: $tablet) {
+    opacity: 1;
+    width: 213px;
+
+    font-size: 14px;
+    line-height: calc(24 / 14);
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 288px;
+  }
+}
+
+.search-input.active {
+  opacity: 1;
+}
+
+.search-input::placeholder {
+  color: #7b7b80;
+  opacity: 0.4;
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 78%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 12px;
+
+  background-color: transparent;
+  border-color: transparent;
+
+  cursor: pointer;
+
+  @media screen and(min-width: $tablet) {
+    left: 0;
+  }
+}
+
+.icon-search {
+  width: 20px;
+  height: 20px;
+
+  @media screen and (min-width: $tablet) {
+    width: 20px;
+    height: 19px;
+  }
+}
+
+.burger-btn {
+  border: 0px;
+  background-color: transparent;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+//
+
+.toggle-theme {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 1px;
+  background-color: #4b48db;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #fff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4b48db;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-theme__icon {
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.toggle-theme__text {
+  display: none;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #5f6775;
+
+  @media screen and (min-width: $desktop) {
+    display: block;
+  }
+}
+
+.toggle-theme__text.active {
+  color: #4b48db;
+}

@@ -26,19 +26,20 @@ function removeLoader() {
 }
 
 
-let news = [];
+// let news = [];
 
-const localNews = [];
+// const localNews = [];
 
-for (let i = 0; i < 8 * 20; i++) {
-    localNews.push(i);
-};
+// for (let i = 0; i < 8 * 20; i++) {
+//     localNews.push(i);
+// };
         appendLoader();
 loadNews()
-    .then(data => {
 
-        return data.results;
-    })
+// const news = loadNews()
+  .then(data => {
+    return data.results;
+  })
   .then(results => {
     news = results;
     return news;
@@ -47,7 +48,7 @@ loadNews()
     const result = {
       currentPage: 1,
       numLinksTwoSide: 1,
-      totalPages: Math.ceil(localNews / valuePage.perPage) || 1,
+      totalPages: Math.ceil(data / valuePage.perPage) || 1,
       perPage: 4,
     };
 
@@ -59,7 +60,7 @@ loadNews()
       result.perPage = 8;
     }
 
-    result.totalPages = Math.ceil(localNews.length / result.perPage);
+    result.totalPages = Math.ceil(data.length / result.perPage);
 
     pg.innerHTML = '';
     pagination(result.totalPages);
@@ -67,10 +68,10 @@ loadNews()
     return result;
   })
   .then(modifiedData => (valuePage = modifiedData))
-    .then(pageData => {
-        removeLoader();
-        pagination(pageData.totalPages)
-    });
+  .then(pageData => {
+    removeLoader();
+    pagination(pageData.totalPages);
+  });
 
 window.addEventListener('resize', () => {
 

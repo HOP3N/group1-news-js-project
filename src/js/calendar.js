@@ -1,7 +1,7 @@
-// import flatpickr from 'flatpickr';
-// import 'flatpickr/dist/flatpickr.min.css';
-// import imgOps from '../img/main/img-ds.png';
-// import svg from '../images/sprite.svg';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import imgOps from '../img/main/img-ds.png';
+import svg from '../images/sprite.svg';
 
 const dateInputEl = document.querySelector('#datetime-picker');
 const filterSection = document.querySelector('.filter-section');

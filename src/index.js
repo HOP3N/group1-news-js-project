@@ -5,7 +5,7 @@ import './js/read';
 import './js/weather';
 import './js/theme';
 import './js/header';
-// import './js/calendar';
+import './js/calendar';
 // import './js/sash';
 import './js/api';
 import './js/get-card-list-popular';

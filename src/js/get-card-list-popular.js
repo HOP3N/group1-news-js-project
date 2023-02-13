@@ -1,6 +1,6 @@
-// import dateFormat, { masks } from 'dateformat';
-// import { addToFavorite } from './add-to-favorite';
-// import { setFavoritesOnLoad } from './set-favorites-on-load';
+import dateFormat, { masks } from 'dateformat';
+import { addToFavorite } from './add-to-favorite';
+import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
 
 const cardList = document.getElementById('cards');

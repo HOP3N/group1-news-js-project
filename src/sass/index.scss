@@ -1,7 +1,9 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Poppins&display=swap');
 @import './utils/vars';
 @import './base/common';
 @import './base/normalize';
+@import './components/cards';
 @import './components/favorite';
 @import './components/footer';
 @import './components/header';
@@ -11,3 +13,4 @@
 @import './components/filter-section';
 @import './components/mobile-menu';
 // @import '../sass/example';
+@import './components/loader.scss'

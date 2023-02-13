@@ -1,0 +1,76 @@
+<header class="header">
+  <div class="container">
+    <nav class="header__container">
+      <a href="index.html" class="logo">News</a>
+      <ul class="nav__list list">
+        <li class="nav__item">
+          <a href="" class="nav__link nav__link--current">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="" class="nav__link">Favorite</a>
+        </li>
+        <li class="nav__item">
+          <a href="" class="nav__link">Read</a>
+        </li>
+      </ul>
+
+
+
+       <div class="search-container">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search |"
+            class="search-input"
+            id="placeholder"
+          />
+          <button type="button" class="search-button">
+            <svg class="icon-search">
+              <use href="/src/images/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </form>
+      </div> 
+
+
+
+
+
+      <button
+        class="burger-btn js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg
+          class="burger-icon"
+          width="
+                24px"
+          height="
+                24px"
+        >
+          <use
+            href="/src/images/sprite.svg#heart-icon"
+            class="burger-menu"
+          ></use>
+        </svg>
+      </button>
+
+      <div class="toggle-theme">
+        <svg class="toggle-theme__icon" width="19px" height="19px">
+          <use href="/src/images/sprite.svg#sun" class="burger-menu"></use>
+        </svg>
+        <span class="toggle-theme__text">Light</span>
+        <label class="switch">
+          <input id="theme-switch" type="checkbox" class="toggle-switch">
+          <span class="slider round"></span>
+        </label>
+        <svg class="toggle-theme__icon" width="19px" height="19px">
+          <use href="/src/images/sprite.svg#moon" class="burger-menu"></use>
+        </svg>
+        <span class="toggle-theme__text">Dark</span>
+      </div>
+    </nav>
+  </div>
+</header>

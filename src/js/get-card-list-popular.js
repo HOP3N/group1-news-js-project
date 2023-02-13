@@ -1,11 +1,14 @@
 import dateFormat, { masks } from 'dateformat';
 import { addToFavorite } from './add-to-favorite';
 import { setFavoritesOnLoad } from './set-favorites-on-load';
+import { getPopular } from './get-popular';
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
 const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 const POPULAR_URL = '/mostpopular/v2/viewed/1.json?api-key=';
+const temp = getPopular();
+console.log(temp);
 
 function getCardsList() {
   fetch(`${BASE_URL}${POPULAR_URL}${API_KEY}`)

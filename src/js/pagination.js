@@ -66,11 +66,11 @@ loadNews()
     }
 const updatePerPage = offset;
 if (updatePerPage<=mobileWidth) {
-  updatePerPage.slise(0,5);
+  updatePerPage.slice(0,5);
     } else if(updatePerPage = deviceWidth > mobileWidth && deviceWidth <= tabletWidth){
-  updatePerPage.slise(0,8);
+  updatePerPage.slice(0,8);
 } else {
-  updatePerPage.slise(0, 9);
+  updatePerPage.slice(0, 9);
 }
     result.totalPages = Math.ceil(news.length / result.perPage);
 

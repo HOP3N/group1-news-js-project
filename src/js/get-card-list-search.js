@@ -17,8 +17,12 @@ function getCardsList() {
       let html = '';
       if (results) {
         results.forEach(card => {
-          const imgUrl = `https://static01.nyt.com/${card.multimedia[0].url}`;
-          const imgCaption = `https://static01.nyt.com/${card.multimedia[0].caption}`;
+          const imgUrl = card.multimedia.length
+            ? `https://static01.nyt.com/${card.multimedia[0].url}`
+            : '';
+          const imgCaption = card.multimedia.length
+            ? `https://static01.nyt.com/${card.multimedia[0].caption}`
+            : '';
 
           html += `<li class = "card__item" data-id = "${card.uri}">
     <div class="card__wrapper">

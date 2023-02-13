@@ -1,9 +1,7 @@
-const searchInputEl = document.querySelector('.search-input');
-const searchBtnEl = document.querySelector('.search-button');
+const iconSearch = document.querySelector('.icon-search');
+const searchInput = document.querySelector('.search-input');
 
-function showInput() {
-    searchInputEl.style.opacity = 1;
-    searchBtnEl.style.left = 0;
+
+iconSearch.onclick = function(){
+    searchInput.classList.toggle('active')
 }
-
-searchBtnEl.addEventListener('click', showInput);

@@ -12,7 +12,7 @@
   transition: transform 250ms ease-in-out;
   background: var(--body-color);
 
-  @media screen and(min-width: $tablet) {
+  @media screen and (min-width: $tablet) {
     display: none;
   }
 }
@@ -64,8 +64,6 @@
   }
 }
 
-.close-mobile__icon {
-}
 
 .is-hidden {
   transform: translateX(100%);

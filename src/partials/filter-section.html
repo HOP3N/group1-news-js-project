@@ -1,5 +1,45 @@
 <section class="filter-section">
   <div class="filter-section__container container">
+    <div class="categories">
+      <ul class="categories__btn-list"></ul>
+      <div class="menu">
+        <button class="categories__btn-menu">
+          <span class="categories__btn-text"></span>
+          <svg class="categories__icon-up invisible" width="14" height="14">
+            <use href="#"></use>
+          </svg>
+          <svg class="categories__icon-down" width="14" height="14">
+            <use href="#"></use>
+          </svg>
+        </button>
+        <div class="categories__menu invisible">
+          <ul class="categories__list"></ul>
+        </div>
+      </div>
+    <div class="wrapper">
+      <p class="filter-section__text js-filter-text">Search date news</p>
+      <div class="filter-section__input-group">
+        <input
+          type="text"
+          id="datetime-picker"
+          class="datetime-picker__input"
+        />
+        <svg class="datetime-picker__input-icon-calender">
+          <use href="./images/sprite.svg#calendar"></use>
+        </svg>
+        <svg class="datetime-picker__input-icon-arrow-down">
+          <use href="./images/sprite.svg#arrow-down"></use>
+        </svg>
+        <svg class="datetime-picker__input-icon-arrow-up">
+          <use href="./images/sprite.svg#arrow-up"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="filter-section">
+  <div class="filter-section__container container">
     <ul class="filter__list filter-list-js">
       <li class="filter__item">
         <button class="filter__btn js-theme-change">Admin</button>
@@ -147,4 +187,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->

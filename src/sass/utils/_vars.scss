@@ -11,11 +11,16 @@
     --dark-theme-name-color: #5F6775;
     --filter-container-background-color: #F8F8F8;
     /* Dark theme */
-    body.darkMode {
+    body.dark {
         --body-color: #2E2E2E;
         --text-color: #F4F4F4;
     }
 }
+.dark {
+    background: var(--body-color);
+}
+
+
 $mobile: 479.98px;
 $tablet: 767.98px;
 $desktop: 1279.98px;

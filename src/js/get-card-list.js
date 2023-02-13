@@ -1,18 +1,18 @@
-const cardList = document.getElementById("cards");
+const cardList = document.getElementById('cards');
 const isFavorite = true;
-const API_KEY = "SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX";
-let inputText = "";
+const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
+let inputText = '';
 
-function getCardsList() {
+export function getCardsList() {
   fetch(
     `https://api.nytimes.com/svc/news/v3/content/nyt/business.json?api-key=${API_KEY}`
   )
-    .then((response) => response.json())
+    .then(response => response.json())
     .then(({ results }) => {
       console.log(results);
-      let html = "";
+      let html = '';
       if (results) {
-        results.forEach((card) => {
+        results.forEach(card => {
           html += `
                     <div class = "news-item" data-id = "${card.title}">
                         <div class = "news-img">
@@ -35,10 +35,10 @@ function getCardsList() {
                     </div>
                 `;
         });
-        cardList.classList.remove("notFound");
+        cardList.classList.remove('notFound');
       } else {
         html = "Sorry, we didn't find any news!";
-        cardList.classList.add("notFound");
+        cardList.classList.add('notFound');
       }
       cardList.innerHTML = html;
       // setFavoritesOnLoad();
@@ -47,35 +47,35 @@ function getCardsList() {
 getCardsList();
 
 function addToFavorite(e) {
-  if (e.target.dataset.action === "favorite-btn") {
+  if (e.target.dataset.action === 'favorite-btn') {
     let cardItem = e.target.parentElement.parentElement.dataset.id;
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    if (e.target.classList.contains("removeFavorite-btn")) {
-      const updatedFavorites = favorites.filter((id) => id !== cardItem);
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    if (e.target.classList.contains('removeFavorite-btn')) {
+      const updatedFavorites = favorites.filter(id => id !== cardItem);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
 
-      e.target.textContent = "Add to favorites";
-      e.target.classList.remove("removeFavorite-btn");
+      e.target.textContent = 'Add to favorites';
+      e.target.classList.remove('removeFavorite-btn');
     } else {
       favorites.push(cardItem);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+      localStorage.setItem('favorites', JSON.stringify(favorites));
 
-      e.target.textContent = "Remove from favorites";
-      e.target.classList.add("removeFavorite-btn");
+      e.target.textContent = 'Remove from favorites';
+      e.target.classList.add('removeFavorite-btn');
     }
   }
 }
 
 function setFavoritesOnLoad() {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  favorites.forEach((id) => {
+  favorites.forEach(id => {
     const cardItem = document.querySelector(`[data-id="${id}"]`);
     const favoriteBtn = cardItem.querySelector("[data-action='favorite-btn']");
 
-    favoriteBtn.classList.add("removeFavorite-btn");
-    favoriteBtn.textContent = "Remove from fav";
+    favoriteBtn.classList.add('removeFavorite-btn');
+    favoriteBtn.textContent = 'Remove from fav';
   });
 }
-cardList.addEventListener("click", addToFavorite);
+cardList.addEventListener('click', addToFavorite);

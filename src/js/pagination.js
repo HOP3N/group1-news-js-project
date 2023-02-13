@@ -1,4 +1,8 @@
 import { loadNews } from './api.js';
+import './offset.js';
+import './search-news.js';
+
+
 const deviceWidth = +window.innerWidth;
 const pg = document.querySelector('.pagination');
 const btnNextPg = document.querySelector('button.next-page');
@@ -15,40 +19,41 @@ loaderElement.innerHTML = `
 `;
 
 function appendLoader() {
-    console.log('loader added');
+    // console.log('loader added');
     document.body.append(loaderElement);
 }
 
 function removeLoader() {
     const element = document.querySelector('.loader-container');
-    console.log(element, 'loader removed');
+    // console.log(element, 'loader removed');
     loaderElement.remove();
 }
 
-
-// let news = [];
+let news = [];
 
 // const localNews = [];
 
 // for (let i = 0; i < 8 * 20; i++) {
 //     localNews.push(i);
 // };
-        appendLoader();
-loadNews()
+appendLoader();
 
+loadNews()
 // const news = loadNews()
   .then(data => {
     return data.results;
   })
+ 
   .then(results => {
     news = results;
+     console.log(news);
     return news;
   })
   .then(data => {
     const result = {
       currentPage: 1,
       numLinksTwoSide: 1,
-      totalPages: Math.ceil(data / valuePage.perPage) || 1,
+      totalPages: Math.ceil(news / valuePage.perPage) || 1,
       perPage: 4,
     };
 
@@ -59,8 +64,15 @@ loadNews()
     } else {
       result.perPage = 8;
     }
-
-    result.totalPages = Math.ceil(data.length / result.perPage);
+const updatePerPage = offset;
+if (updatePerPage<=mobileWidth) {
+  updatePerPage.slise(0,5);
+    } else if(updatePerPage = deviceWidth > mobileWidth && deviceWidth <= tabletWidth){
+  updatePerPage.slise(0,8);
+} else {
+  updatePerPage.slise(0, 9);
+}
+    result.totalPages = Math.ceil(news.length / result.perPage);
 
     pg.innerHTML = '';
     pagination(result.totalPages);
@@ -92,8 +104,7 @@ const calcPaginationData = (object) => {
   } else {
     perPage = 8;
   }
-
-  const totalPages = Math.ceil(localNews.length / perPage);
+  const totalPages = Math.ceil(news.length / perPage);
 
   return {
     ...object,
@@ -129,7 +140,7 @@ pg.addEventListener('click', e => {
 
 function pagination(totalPages) {
   const { currentPage, numLinksTwoSide: delta } = valuePage;
-  // console.log('pagination render', totalPages)
+  console.log('pagination render', totalPages)
 
   const range = delta + 4;
 

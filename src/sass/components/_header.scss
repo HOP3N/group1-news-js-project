@@ -118,7 +118,7 @@
   line-height: calc(21 / 12);
 
   background-color: transparent;
-  border: 1px solid #111321;
+  border: 1px solid var(--text-color);
   border-radius: 20px;
   outline: none;
 
@@ -140,7 +140,7 @@
 }
 
 .search-input::placeholder {
-  color: #7b7b80;
+  color: var(--text-color);
   opacity: 0.4;
 }
 
@@ -172,7 +172,7 @@
   position: absolute;
   z-index: 999;
   cursor: pointer;
-  fill: #fff;
+  fill: var(--text-color);
 
   @media screen and (min-width: $tablet) {
     width: 20px;
@@ -189,6 +189,10 @@
   @media screen and (min-width: $tablet) {
     display: none;
   }
+}
+
+.burger-icon {
+  fill: var(--text-color);
 }
 
 //Toggle-theme
@@ -242,8 +246,8 @@
 }
 
 input:checked + .slider {
-  background-color: #fff;
-  border: 1px solid #4b48db;
+  background-color: #4440f7;
+  border: 1px solid #ffffff;
 }
 
 input:focus + .slider {
@@ -254,6 +258,7 @@ input:checked + .slider:before {
   -webkit-transform: translateX(18px);
   -ms-transform: translateX(18px);
   transform: translateX(18px);
+  background-color: #fff;
 }
 
 /* Rounded sliders */
@@ -266,8 +271,14 @@ input:checked + .slider:before {
 }
 
 .toggle-theme__icon {
+  fill: var(--dark-theme-name-color);
+
   @media screen and (min-width: $desktop) {
     display: none;
+    
+  }
+  &.active {
+    fill: #4b48db;
   }
 }
 
@@ -278,7 +289,7 @@ input:checked + .slider:before {
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
-  color: #5f6775;
+  color: var(--dark-theme-name-color);
 
   @media screen and (min-width: $desktop) {
     display: block;
@@ -290,5 +301,5 @@ input:checked + .slider:before {
 }
 
 .dark {
-  background: #2e2e2e;
+  background: var(--body-color);
 }

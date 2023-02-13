@@ -1,4 +1,6 @@
 const themeSwitcher = document.getElementById('theme-switch');
+const imageSwitcher = document.querySelectorAll('.toggle-theme__icon')
+const textSwitcher = document.querySelectorAll('.toggle-theme__text')
 themeSwitcher.checked = false;
 
 

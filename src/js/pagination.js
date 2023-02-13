@@ -64,14 +64,14 @@ loadNews()
     } else {
       result.perPage = 8;
     }
-const updatePerPage = offset;
-if (updatePerPage<=mobileWidth) {
-  updatePerPage.slice(0,5);
-    } else if(updatePerPage = deviceWidth > mobileWidth && deviceWidth <= tabletWidth){
-  updatePerPage.slice(0,8);
-} else {
-  updatePerPage.slice(0, 9);
-}
+// const updatePerPage = offset;
+// if (updatePerPage<=mobileWidth) {
+//   updatePerPage.slice(0,5);
+//     } else if(updatePerPage = deviceWidth > mobileWidth && deviceWidth <= tabletWidth){
+//   updatePerPage.slice(0,8);
+// } else {
+//   updatePerPage.slice(0, 9);
+// }
     result.totalPages = Math.ceil(news.length / result.perPage);
 
     pg.innerHTML = '';

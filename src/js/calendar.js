@@ -305,3 +305,7 @@ function showCategoriesList() {
   refs.categoriesIconDown.classList.toggle('invisible');
   refs.categoriesMenu.classList.toggle('invisible');
 }
+
+
+
+

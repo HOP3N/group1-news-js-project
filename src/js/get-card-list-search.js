@@ -1,14 +1,17 @@
 import dateFormat, { masks } from 'dateformat';
 import { addToFavorite } from './add-to-favorite';
 import { setFavoritesOnLoad } from './set-favorites-on-load';
+// import { getArticleByCategory } from './api';
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
 const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 //api.nytimes.com/svc/search/v2/articlesearch.json?q=arts&page=1&api-key=SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX
-function getCardsList() {
+// function getCardsList() {
+  function getCardsByCategory() {
   fetch(
-    `${BASE_URL}/search/v2/articlesearch.json?q=arts&page=1&api-key=${API_KEY}`
+    // `${BASE_URL}/search/v2/articlesearch.json?q=arts&page=1&api-key=${API_KEY}`
+    `${BASE_URL}/search/v2/articlesearch.json?q=popularies&page=1&api-key=${API_KEY}`
   )
     .then(response => response.json())
     .then(({ response }) => {
@@ -53,7 +56,8 @@ function getCardsList() {
       setFavoritesOnLoad();
     });
 }
-getCardsList();
+// getCardsList();
+// getCardsByCategory();
 
 cardList.addEventListener('click', addToFavorite);
 cardList.addEventListener('click', addToAlreadyRead);

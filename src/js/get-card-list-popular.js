@@ -2,6 +2,7 @@ import dateFormat, { masks } from 'dateformat';
 import { addToFavorite } from './add-to-favorite';
 import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
+// import { getArticleByCategory } from './api';
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';

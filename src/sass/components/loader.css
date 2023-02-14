@@ -1,0 +1,40 @@
+.loader-container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(37, 37, 37, 0.4588235294);
+}
+
+.loader {
+  height: 30px;
+  width: 30px;
+  border: 6px solid lightgrey;
+  border-radius: 50%;
+  border-left-color: grey;
+  -webkit-animation: loader-animation 1s linear infinite;
+          animation: loader-animation 1s linear infinite;
+}
+
+@-webkit-keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=loader.css.map */

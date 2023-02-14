@@ -5,7 +5,11 @@
   --body-color: #F4F4F4;
   --text-color: #111321;
   --text-color-light: #A8A8A8;
+<<<<<<< Updated upstream
   --accent-color: #4440F6;
+=======
+  --accent-color: #4440f6;
+>>>>>>> Stashed changes
   --white-color: #FFFFFF;
   --footer-color: #7A7A7A;
   --green-color: #00DD73;
@@ -13,11 +17,22 @@
   --filter-container-background-color: #F8F8F8;
   /* Dark theme */
 }
+<<<<<<< Updated upstream
 :root body.darkMode {
+=======
+:root body.dark {
+>>>>>>> Stashed changes
   --body-color: #2E2E2E;
   --text-color: #F4F4F4;
 }
 
+<<<<<<< Updated upstream
+=======
+.dark {
+  background: var(--body-color);
+}
+
+>>>>>>> Stashed changes
 ul {
   list-style: none;
   padding: 0;
@@ -82,6 +97,636 @@ a {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+@media screen and (max-width: 479.98px) {
+  body {
+    font-size: 14px;
+    line-height: 1.3571428571;
+  }
+  .favorite-btn {
+    right: 8px;
+  }
+  .card__text-read {
+    top: 14px;
+    right: 14px;
+  }
+  .card__news-title {
+    font-size: 24px;
+    line-height: 1.375;
+  }
+}
+body {
+  font-size: 16px;
+  line-height: 1.375;
+}
+
+.card__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.card__title {
+  display: none;
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card__thumb {
+  position: relative;
+}
+
+.card__img {
+  height: 395px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.card__news-category {
+  position: absolute;
+  top: 40px;
+  padding: 4px 8px;
+  display: inline-block;
+  background-color: rgba(68, 64, 247, 0.7);
+  color: var(--white-color);
+  border-radius: 0px 4px 4px 0px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3333333333;
+  text-align: center;
+}
+
+.favorite-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  padding: 6px 12px;
+  background-color: var(--white-color);
+  border-radius: 20px;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3333333333;
+  text-align: center;
+}
+
+.favorite-btn::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/heart-icon.svg");
+  margin-left: 4px;
+}
+
+.card__text-read {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--green-color);
+  font-weight: 700;
+}
+
+.card__text-read::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/check-mark.svg");
+  margin-left: 4px;
+}
+
+.card__news-title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.375;
+  letter-spacing: -0.01em;
+}
+
+.card__additional-info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__datetime {
+  color: var(--text-color-light);
+}
+
+.card__link {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 767.98px) {
+  .card__list {
+    gap: 30px;
+  }
+  .card__item {
+    flex-basis: calc(50% - 15px);
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .card__list {
+    gap: 40px 31px;
+  }
+  .card__item {
+    flex-basis: 395px;
+  }
+}
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--body-color);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+}
+@media screen and (min-width: 767.98px) {
+  .header__container {
+    align-items: baseline;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+  font-family: Manrope;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+}
+@media screen and (min-width: 767.98px) {
+  .logo {
+    max-width: 768px;
+    margin-right: 48px;
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .logo {
+    margin-right: 102px;
+    font-size: 42px;
+  }
+}
+
+.nav__list {
+  list-style: none;
+  display: none;
+  padding: 0;
+}
+@media screen and (min-width: 767.98px) {
+  .nav__list {
+    max-width: 768px;
+    margin-right: 32px;
+    display: flex;
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .nav__list {
+    margin-right: 140px;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .nav__item:not(:last-child) {
+    margin-right: 44px;
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .nav__item:not(:last-child) {
+    margin-right: 69px;
+  }
+}
+
+.nav__link {
+  text-decoration: none;
+  position: relative;
+  display: block;
+  font-family: Manrope;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.nav__link--current::after {
+  content: "";
+  width: 100%;
+  border: 1px solid #4440f7;
+  background-color: rgb(68, 64, 246);
+  position: absolute;
+  top: 35px;
+  left: 0;
+}
+
+.search-container {
+  position: relative;
+  margin-right: 14px;
+  transition: 0.5s;
+  background: transparent;
+  overflow: hidden;
+}
+@media screen and (min-width: 767.98px) {
+  .search-container {
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .search-container {
+    margin-right: 147px;
+  }
+}
+
+.search-container.active {
+  min-width: 173px;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-input {
+  width: 173px;
+  height: 31px;
+  opacity: 0;
+  padding-left: 48px;
+  transition-property: 0.5s;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.75;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  border-radius: 20px;
+  outline: none;
+}
+@media screen and (min-width: 767.98px) {
+  .search-input {
+    opacity: 1;
+    width: 213px;
+    font-size: 14px;
+    line-height: 1.7142857143;
+  }
+}
+@media screen and (min-width: 1279.98px) {
+  .search-input {
+    width: 288px;
+  }
+}
+
+.search-input.active {
+  opacity: 1;
+}
+
+.search-input::-moz-placeholder {
+  color: var(--text-color);
+  opacity: 0.4;
+}
+
+.search-input:-ms-input-placeholder {
+  color: var(--text-color);
+  opacity: 0.4;
+}
+
+.search-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.4;
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 78%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+@media screen and (min-width: 767.98px) {
+  .search-button {
+    left: 0;
+  }
+}
+
+.icon-search {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  fill: var(--text-color);
+}
+@media screen and (min-width: 767.98px) {
+  .icon-search {
+    width: 20px;
+    height: 19px;
+  }
+}
+
+.burger-btn {
+  border: 0px;
+  background-color: transparent;
+}
+@media screen and (min-width: 767.98px) {
+  .burger-btn {
+    display: none;
+  }
+}
+
+.burger-icon {
+  fill: var(--text-color);
+}
+
+.toggle-theme {
+  display: none;
+}
+@media screen and (min-width: 767.98px) {
+  .toggle-theme {
+    display: flex;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  transition: 0.4s;
+  border: 1px solid #4b48db;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 1px;
+  bottom: 0px;
+  background-color: #4b48db;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4440f7;
+  border: 1px solid #ffffff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4b48db;
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+  background-color: #fff;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-theme__icon {
+  fill: var(--dark-theme-name-color);
+}
+@media screen and (min-width: 1279.98px) {
+  .toggle-theme__icon {
+    display: none;
+  }
+}
+.toggle-theme__icon.active {
+  fill: #4b48db;
+}
+
+.toggle-theme__text {
+  display: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--dark-theme-name-color);
+}
+@media screen and (min-width: 1279.98px) {
+  .toggle-theme__text {
+    display: block;
+  }
+}
+
+.toggle-theme__text.active {
+  color: #4b48db;
+}
+
+.dark {
+  background: var(--body-color);
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  width: 288px;
+  height: 28px;
+  margin-top: 2rem;
+  position: absolute;
+  /* flex-wrap: wrap; */
+}
+@media screen and (min-width: 767.98px) {
+  .page-container {
+    width: 415px;
+    height: 31px;
+  }
+}
+
+.prev-page {
+  cursor: pointer;
+  width: 72px;
+  height: 28px;
+  background-color: var(--white-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 2px;
+}
+@media screen and (min-width: 767.98px) {
+  .prev-page {
+    width: 82px;
+    height: 31px;
+  }
+}
+
+.prev-page.action {
+  background-color: var(--accent-color);
+}
+
+.prev-page:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.btn-prev {
+  width: 100%;
+  width: 38px;
+  height: 22px;
+  left: 34px;
+  top: 4px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.span-prev {
+  padding-right: 4px;
+}
+
+.active {
+  background-color: var(--accent-color);
+}
+
+.active a {
+  color: var(--white-color);
+}
+
+.next-page {
+  cursor: pointer;
+  width: 72px;
+  height: 28px;
+  background-color: var(--white-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 2px;
+}
+@media screen and (min-width: 767.98px) {
+  .next-page {
+    width: 78px;
+    height: 31px;
+  }
+}
+
+.next-page--active {
+  background-color: var(--accent-color);
+}
+
+.next-page:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.btn-next {
+  width: 100%;
+  width: 36px;
+  height: 22px;
+  left: 347px;
+  top: 4px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.span-next {
+  padding-left: 4px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.pg-item {
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+  /* border-radius: 5px; */
+  overflow: hidden;
+  margin: 0 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 2px;
+  border: 1px solid var(--accent-color);
+  text-align: center;
+}
+@media screen and (min-width: 767.98px) {
+  .pg-item {
+    width: 33px;
+    height: 31px;
+  }
+}
+
+.pg-item--dot {
+  border: none;
+  align-items: flex-end;
+}
+.pg-item--dot .pg-link {
+  height: 12px;
+}
+
+.pg-link {
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: #111321;
+  pointer-events: none;
+  text-align: center;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+}
+@media screen and (min-width: 767.98px) {
+  .pg-link {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+/*
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  height: 100%;
+  width: 100%;
+*/
+>>>>>>> Stashed changes
 details {
   padding: 20px 16px;
 }
@@ -198,7 +843,11 @@ details[open] summary ~ * {
 @media screen and (min-width: 767.98px) {
   .filter__btn {
     padding: 0;
+<<<<<<< Updated upstream
     color: #4440f6;
+=======
+    color: #4440F6;
+>>>>>>> Stashed changes
     background-color: transparent;
     border-radius: 20px;
     cursor: pointer;
@@ -207,15 +856,26 @@ details[open] summary ~ * {
 
 .filter__btn:hover,
 .filter__btn:focus {
+<<<<<<< Updated upstream
   color: #ffffff;
   background-color: #4440f6;
+=======
+  color: #FFFFFF;
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width: 767.98px) {
   .filter__btn-desktop {
+<<<<<<< Updated upstream
     color: #4440f6;
     background-color: transparent;
     border-color: #4440f6;
+=======
+    color: #4440F6;
+    background-color: transparent;
+    border-color: #4440F6;
+>>>>>>> Stashed changes
     border-radius: 20px;
     cursor: pointer;
   }
@@ -223,8 +883,13 @@ details[open] summary ~ * {
 
 .filter__btn-desktop:hover,
 .filter__btn-desktop:focus {
+<<<<<<< Updated upstream
   color: #ffffff;
   background-color: #4440f6;
+=======
+  color: #FFFFFF;
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -276,10 +941,17 @@ details[open] summary ~ * {
   padding-bottom: 7.5px;
   padding-left: 13px;
   padding-right: 37px;
+<<<<<<< Updated upstream
   color: #4440f6;
   background-color: transparent;
   background: transparent;
   border: 1px solid #4440f6;
+=======
+  color: #4440F6;
+  background-color: transparent;
+  background: transparent;
+  border: 1px solid #4440F6;
+>>>>>>> Stashed changes
   border-radius: 20px;
   cursor: pointer;
 }
@@ -301,7 +973,11 @@ details[open] summary ~ * {
 .dropdown__btn:hover,
 .dropdown__btn:focus {
   color: rgba(244, 244, 244, 0.2);
+<<<<<<< Updated upstream
   background-color: #4440f6;
+=======
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 .dropdown__btn-icon-arrow-down {
@@ -311,7 +987,11 @@ details[open] summary ~ * {
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
+<<<<<<< Updated upstream
   fill: #4440f6;
+=======
+  fill: #4440F6;
+>>>>>>> Stashed changes
 }
 @media screen and (min-width: 767.98px) {
   .dropdown__btn-icon-arrow-down {
@@ -337,7 +1017,11 @@ details[open] summary ~ * {
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
+<<<<<<< Updated upstream
   fill: #ffffff;
+=======
+  fill: #FFFFFF;
+>>>>>>> Stashed changes
 }
 @media screen and (min-width: 767.98px) {
   .dropdown__btn:focus ~ .dropdown__btn-icon-arrow-up,
@@ -355,7 +1039,11 @@ details[open] summary ~ * {
   min-width: 148px;
   padding-top: 14px;
   padding-left: 14px;
+<<<<<<< Updated upstream
   background-color: #f8f8f8;
+=======
+  background-color: #F8F8F8;
+>>>>>>> Stashed changes
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   z-index: 1;
@@ -379,7 +1067,11 @@ details[open] summary ~ * {
   min-width: 148px;
   padding-top: 14px;
   padding-left: 14px;
+<<<<<<< Updated upstream
   background-color: #f8f8f8;
+=======
+  background-color: #F8F8F8;
+>>>>>>> Stashed changes
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   z-index: 1;
@@ -398,7 +1090,11 @@ details[open] summary ~ * {
 .dropdown__category-btn {
   display: block;
   margin-bottom: 12px;
+<<<<<<< Updated upstream
   color: #4440f7;
+=======
+  color: #4440F7;
+>>>>>>> Stashed changes
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -436,10 +1132,17 @@ details[open] summary ~ * {
 
 @media screen and (min-width: 767.98px) {
   .js-theme-change {
+<<<<<<< Updated upstream
     color: #4440f6;
     cursor: pointer;
     background-color: #f4f4f4;
     border: 1px solid #4440f6;
+=======
+    color: #4440F6;
+    cursor: pointer;
+    background-color: #F4F4F4;
+    border: 1px solid #4440F6;
+>>>>>>> Stashed changes
     border-radius: 31px;
   }
 }
@@ -447,7 +1150,11 @@ details[open] summary ~ * {
 .js-theme-change:hover,
 .js-theme-change:focus {
   color: white;
+<<<<<<< Updated upstream
   background-color: #4440f6;
+=======
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width: 767.98px) {
@@ -455,20 +1162,33 @@ details[open] summary ~ * {
     padding: 0;
     cursor: pointer;
     border-radius: 20px;
+<<<<<<< Updated upstream
     color: #4440f6;
+=======
+    color: #4440F6;
+>>>>>>> Stashed changes
     background: transparent;
   }
 }
 
 .filter__link:hover,
 .filter__link:focus {
+<<<<<<< Updated upstream
   color: #ffffff;
   background-color: #4440f6;
+=======
+  color: #FFFFFF;
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width: 767.98px) {
   .filter__link-desktop {
+<<<<<<< Updated upstream
     color: #4440f6;
+=======
+    color: #4440F6;
+>>>>>>> Stashed changes
     background-color: transparent;
     background: transparent;
     border-radius: 20px;
@@ -479,8 +1199,13 @@ details[open] summary ~ * {
 
 .filter__link-desktop:hover,
 .filter__link-desktop:focus {
+<<<<<<< Updated upstream
   color: #ffffff;
   background-color: #4440f6;
+=======
+  color: #FFFFFF;
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 .filter__item {
@@ -527,7 +1252,11 @@ details[open] summary ~ * {
   width: 151px;
   height: 31px;
   padding-left: 45px;
+<<<<<<< Updated upstream
   color: #a2a2a2;
+=======
+  color: #A2A2A2;
+>>>>>>> Stashed changes
   font-family: "Manrope", sans-serif;
   font-weight: 400;
   font-size: 12px;
@@ -548,9 +1277,15 @@ details[open] summary ~ * {
 
 .datetime-picker__input:hover,
 .datetime-picker__input:focus {
+<<<<<<< Updated upstream
   color: #ffffff;
   background-color: #4440f6;
   outline: 1px solid #4440f6;
+=======
+  color: #FFFFFF;
+  background-color: #4440F6;
+  outline: 1px solid #4440F6;
+>>>>>>> Stashed changes
   border-radius: 20px;
 }
 
@@ -561,7 +1296,11 @@ details[open] summary ~ * {
   transform: translateY(-50%);
   width: 19px;
   height: 19px;
+<<<<<<< Updated upstream
   fill: #4440f6;
+=======
+  fill: #4440F6;
+>>>>>>> Stashed changes
 }
 @media screen and (min-width: 767.98px) {
   .datetime-picker__input-icon-calender {
@@ -572,7 +1311,11 @@ details[open] summary ~ * {
 
 .datetime-picker__input:focus + .datetime-picker__input-icon-calender,
 .datetime-picker__input:hover + .datetime-picker__input-icon-calender {
+<<<<<<< Updated upstream
   fill: #ffffff;
+=======
+  fill: #FFFFFF;
+>>>>>>> Stashed changes
 }
 
 .datetime-picker__input-icon-arrow-down {
@@ -582,7 +1325,11 @@ details[open] summary ~ * {
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
+<<<<<<< Updated upstream
   fill: #a2a2a2;
+=======
+  fill: #A2A2A2;
+>>>>>>> Stashed changes
 }
 
 .datetime-picker__input:focus ~ .datetime-picker__input-icon-arrow-down,
@@ -603,11 +1350,19 @@ details[open] summary ~ * {
   transform: translateY(-50%);
   width: 14px;
   height: 14px;
+<<<<<<< Updated upstream
   fill: #ffffff;
 }
 
 .flatpickr-calendar {
   background-color: #f8f8f8;
+=======
+  fill: #FFFFFF;
+}
+
+.flatpickr-calendar {
+  background-color: #F8F8F8;
+>>>>>>> Stashed changes
   color: #000000;
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
@@ -638,12 +1393,18 @@ details[open] summary ~ * {
 }
 
 .flatpickr-day.selected {
+<<<<<<< Updated upstream
   background-color: #4440f6 !important;
   border-color: #4440f6 !important;
+=======
+  background-color: #4440F6 !important;
+  border-color: #4440F6 !important;
+>>>>>>> Stashed changes
 }
 
 .selected:hover,
 .selected:focus {
+<<<<<<< Updated upstream
   background-color: #4440f6 !important;
   border-color: #4440f6 !important;
 }
@@ -656,13 +1417,31 @@ details[open] summary ~ * {
 .flatpickr-next-month {
   fill: #4440f6 !important;
   stroke: #4440f6 !important;
+=======
+  background-color: #4440F6 !important;
+  border-color: #4440F6 !important;
+}
+
+.flatpickr-prev-month {
+  fill: #4440F6 !important;
+  stroke: #4440F6 !important;
+}
+
+.flatpickr-next-month {
+  fill: #4440F6 !important;
+  stroke: #4440F6 !important;
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width: 767.98px) {
   .js-theme-change {
     border-radius: 20px;
     padding: 0;
+<<<<<<< Updated upstream
     border: 1px solid #4440f6;
+=======
+    border: 1px solid #4440F6;
+>>>>>>> Stashed changes
     height: 32px;
     width: 93px;
   }
@@ -671,7 +1450,11 @@ details[open] summary ~ * {
 .js-theme-change:hover,
 .js-theme-change:focus {
   color: white;
+<<<<<<< Updated upstream
   background-color: #4440f6;
+=======
+  background-color: #4440F6;
+>>>>>>> Stashed changes
 }
 
 .categories {
@@ -818,4 +1601,177 @@ details[open] summary ~ * {
     line-height: 25px;
     text-align: center;
   }
+<<<<<<< Updated upstream
+=======
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 24px;
+  padding-bottom: 19px;
+  z-index: 999;
+  transition: transform 250ms ease-in-out;
+  background: var(--body-color);
+}
+@media screen and (min-width: 767.98px) {
+  .menu-container {
+    display: none;
+  }
+}
+
+.menu-container.is-open {
+  display: none;
+  transform: translateX(0);
+}
+
+.menu-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 74px;
+}
+
+.mobile-logo {
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 16px;
+  color: var(--text-color);
+  font-family: Manrope;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.close-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+.is-hidden {
+  transform: translateX(100%);
+  display: none;
+}
+
+.mobile-menu {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: auto;
+  list-style: none;
+  gap: 18px;
+}
+
+.mobile-menu__item {
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  color: var(--text-color);
+  height: 44px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.mobile-menu__item.current {
+  background-color: var(--accent-color);
+}
+.mobile-menu__item:hover {
+  background-color: var(--accent-color);
+}
+
+.mobile-menu__icon.current {
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.mobile-menu__arrow {
+  display: none;
+  margin-right: 10px;
+}
+.mobile-menu__arrow.current {
+  display: flex;
+  fill: var(--text-color);
+}
+
+.mobile-menu__link {
+  text-decoration: none;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.375;
+  color: var(--text--color);
+  margin-left: 14px;
+  margin-right: auto;
+}
+
+.toggle-theme.mobile {
+  display: flex;
+  gap: 10px;
+  margin-left: 16px;
+}
+
+.loader-container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(37, 37, 37, 0.4588235294);
+}
+
+.loader {
+  height: 30px;
+  width: 30px;
+  border: 6px solid lightgrey;
+  border-radius: 50%;
+  border-left-color: grey;
+  -webkit-animation: loader-animation 1s linear infinite;
+          animation: loader-animation 1s linear infinite;
+}
+
+@-webkit-keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+>>>>>>> Stashed changes
 }/*# sourceMappingURL=index.css.map */

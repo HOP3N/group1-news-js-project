@@ -17,3 +17,4 @@ import './js/search-news';
 import './js/set-favorites-on-load';
 import './js/theme';
 import './js/weather';
+import './js/search-news';

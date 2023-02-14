@@ -11,7 +11,10 @@ const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 let keyword = '';
 
 function createMarkupIfEmpty() {
-  const markup = `<h2 class="section-news__title">We haven’t found news from this category</h2><img src="${imgOps}" alt="Ooooops" class="news-section__img-if-empty"/>`;
+  const markup = `<div class="section-news__wrapper">
+                    <h2 class="section-news__title">We haven’t found news from this category</h2>
+                    <img src="${imgOps}" alt="Ooooops" class="news-section__img-if-empty"/>
+                    </div>`;
   sectionNewsEl.innerHTML = markup;
   sectionPaginationEl.innerHTML = '';
 }

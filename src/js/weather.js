@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import { format } from 'date-fns';
+import { format } from 'date-fns';
 
 const weatherContainer = document.querySelector('.weather__list');
 

@@ -3,6 +3,7 @@ import { addToFavorite } from './add-to-favorite';
 import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
 // import { getArticleByCategory } from './api';
+import { getWeatherCard } from './weather'; 
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
@@ -52,6 +53,7 @@ function getCardsList() {
         cardList.classList.add('notFound');
       }
       cardList.innerHTML = html;
+      getWeatherCard();
       setFavoritesOnLoad();
     });
 }

@@ -1,19 +1,29 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { format } from 'date-fns';
 
-const weatherContainer = document.querySelector('.weather__list');
+const weatherContainer = document.querySelector('.card__list');
 
 const WEATHER_API_KEY = 'bf0cd5a153ab38d36794a1aaec126d4f';
 const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
-function getWeatherCard() {
-  fetchWeatherByCity('London').then(
-    response => (weatherContainer.innerHTML = createWeatherMarkup(response))
-  );
+export function getWeatherCard() {
+  fetchWeatherByCity('London').then(response => {
+    const newMarkup = createWeatherMarkup(response);
+    if (window.matchMedia("(max-width: 767.96px)").matches) {
+      const elem = weatherContainer.children[0];
+      elem.insertAdjacentHTML('beforebegin', newMarkup);
+
+    } else if (window.matchMedia("(min-width: 1279.98px)").matches) {
+      const elem = weatherContainer.children[1];
+      elem.insertAdjacentHTML('afterend', newMarkup);
+
+    } else {
+      const elem = weatherContainer.children[0];
+      elem.insertAdjacentHTML('afterend', newMarkup);
+    }
+  });
   getGeoposition();
 }
-
-getWeatherCard();
 
 function fetchWeatherByCity(cityName) {
   const url = `${WEATHER_URL}?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`;
@@ -46,7 +56,7 @@ const createWeatherMarkup = data => {
   const date = format(new Date(), 'dd LLL y');
 
   const murkup = `
-	<li class="weather__item-card">
+	<li class="weather__item-card card__item">
 		<h3 class="weather__title">Weather</h3>
 		<div class="weather__upper-flex-container">
 			<div class="weather__temperature">${Math.floor(temp)}°</div>
@@ -74,7 +84,19 @@ function getGeoposition() {
 
         fetchWeatherByCoords(latitude, longitude)
           .then(response => {
-            weatherContainer.innerHTML = createWeatherMarkup(response);
+            const newMarkup = createWeatherMarkup(response);
+            if (window.matchMedia("(max-width: 767.96px)").matches) {
+              const elem = weatherContainer.children[0];
+              elem.insertAdjacentHTML('beforebegin', newMarkup);
+        
+            } else if (window.matchMedia("(min-width: 1279.98px)").matches) {
+              const elem = weatherContainer.children[1];
+              elem.insertAdjacentHTML('afterend', newMarkup);
+        
+            } else {
+              const elem = weatherContainer.children[0];
+              elem.insertAdjacentHTML('afterend', newMarkup);
+            }
           })
           .catch(error => console.log('fetchWeatherByCoords error'));
       }

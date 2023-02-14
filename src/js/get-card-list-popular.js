@@ -4,6 +4,7 @@ import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
 import { setItemToLocalStorage } from './add-read';
 // import { getArticleByCategory } from './api';
+import { getWeatherCard } from './weather'; 
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
@@ -54,6 +55,7 @@ function getCardsList() {
         cardList.classList.add('notFound');
       }
       cardList.innerHTML = html;
+      getWeatherCard();
       setFavoritesOnLoad();
     });
 }

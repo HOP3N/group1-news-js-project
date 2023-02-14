@@ -1,3 +1,4 @@
+
 @media screen and (max-width: $mobile) {
   body {
     font-size: 14px;
@@ -69,6 +70,7 @@ body {
 }
 
 .favorite-btn {
+
   position: absolute;
   bottom: 12px;
   right: 12px;
@@ -100,6 +102,7 @@ body {
   top: 20px;
   right: 20px;
 
+
   display: flex;
   align-items: center;
 
@@ -117,6 +120,7 @@ body {
 }
 
 .card__news-title {
+
   // min-height: 176px;
   font-weight: 700;
   font-size: 32px;

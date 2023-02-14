@@ -8,7 +8,7 @@ const BASE_URL = 'https://api.nytimes.com/svc';
 const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 //api.nytimes.com/svc/search/v2/articlesearch.json?q=arts&page=1&api-key=SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX
 // function getCardsList() {
-  function getCardsByCategory() {
+function getCardsByCategory() {
   fetch(
     // `${BASE_URL}/search/v2/articlesearch.json?q=arts&page=1&api-key=${API_KEY}`
     `${BASE_URL}/search/v2/articlesearch.json?q=popularies&page=1&api-key=${API_KEY}`
@@ -59,42 +59,42 @@ const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 // getCardsList();
 // getCardsByCategory();
 
-cardList.addEventListener('click', addToFavorite);
-cardList.addEventListener('click', addToAlreadyRead);
+// cardList.addEventListener('click', addToFavorite);
+// cardList.addEventListener('click', addToAlreadyRead);
 
 //----------------------------
 
-function addToAlreadyRead(e) {
-  console.log(e.target.dataset);
-  if (e.target.dataset.action === 'card__link') {
-    let cardItem =
-      e.target.parentElement.parentElement.parentElement.dataset.id;
-    console.log(e.target.parentElement.parentElement.dataset.id);
-    const favorites = JSON.parse(localStorage.getItem('read')) || [];
+// function addToAlreadyRead(e) {
+//   console.log(e.target.dataset);
+//   if (e.target.dataset.action === 'card__link') {
+//     let cardItem =
+//       e.target.parentElement.parentElement.parentElement.dataset.id;
+//     console.log(e.target.parentElement.parentElement.dataset.id);
+//     const favorites = JSON.parse(localStorage.getItem('read')) || [];
 
-    if (e.target.classList.contains('removeFavorite-btn')) {
-      console.log(e.target.dataset.action);
-      const updatedFavorites = favorites.filter(id => id !== cardItem);
-      localStorage.setItem('read', JSON.stringify(updatedFavorites));
-      // e.target.textContent = "Add to favorites";
-      // e.target.classList.remove("removeFavorite-btn");
-    } else {
-      favorites.push(cardItem);
-      localStorage.setItem('read', JSON.stringify(favorites));
-      // e.target.textContent = "Remove from favorites";
-      // e.target.classList.add("removeFavorite-btn");
-    }
-  }
-}
+//     if (e.target.classList.contains('removeFavorite-btn')) {
+//       console.log(e.target.dataset.action);
+//       const updatedFavorites = favorites.filter(id => id !== cardItem);
+//       localStorage.setItem('read', JSON.stringify(updatedFavorites));
+//       // e.target.textContent = "Add to favorites";
+//       // e.target.classList.remove("removeFavorite-btn");
+//     } else {
+//       favorites.push(cardItem);
+//       localStorage.setItem('read', JSON.stringify(favorites));
+//       // e.target.textContent = "Remove from favorites";
+//       // e.target.classList.add("removeFavorite-btn");
+//     }
+//   }
+// }
 
-function setAlreadyReadOnLoad() {
-  const favorites = JSON.parse(localStorage.getItem('read')) || [];
+// function setAlreadyReadOnLoad() {
+//   const favorites = JSON.parse(localStorage.getItem('read')) || [];
 
-  favorites.forEach(id => {
-    const cardItem = document.querySelector(`[data-id="${id}"]`);
-    const favoriteBtn = cardItem.querySelector("[data-action='favorite-btn']");
+//   favorites.forEach(id => {
+//     const cardItem = document.querySelector(`[data-id="${id}"]`);
+//     const favoriteBtn = cardItem.querySelector("[data-action='favorite-btn']");
 
-    favoriteBtn.classList.add('removeFavorite-btn');
-    favoriteBtn.textContent = 'Remove from fav';
-  });
-}
+//     favoriteBtn.classList.add('removeFavorite-btn');
+//     favoriteBtn.textContent = 'Remove from fav';
+//   });
+// }

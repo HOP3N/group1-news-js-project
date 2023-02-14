@@ -52,12 +52,7 @@ loadNews()
       perPage: 4,
     };
 
- function updateNews() {
-  return [...this.news].splice(
-    this.perPage * (this.currentPage - 1),
-    this.perPage
-  );
-}
+ 
     
     if (deviceWidth <= mobileWidth) {
       result.perPage = 4;
@@ -107,7 +102,6 @@ const calcPaginationData = (object) => {
     totalPages,
   };
 };
-
 
 let valuePage = {
   currentPage: 1,

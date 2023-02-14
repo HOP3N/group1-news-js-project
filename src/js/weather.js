@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { format } from 'date-fns';
 
 const weatherContainer = document.querySelector('.card__list');
@@ -22,7 +22,8 @@ export function getWeatherCard() {
       elem.insertAdjacentHTML('afterend', newMarkup);
     }
   });
-  // getGeoposition();
+
+  getGeoposition();
 }
 
 function fetchWeatherByCity(cityName) {
@@ -76,11 +77,11 @@ const createWeatherMarkup = data => {
   return murkup;
 };
 
+
 function getGeoposition() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
-        weatherContainer.innerHTML = '';
 
         fetchWeatherByCoords(latitude, longitude)
           .then(response => {

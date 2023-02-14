@@ -22,7 +22,7 @@ export function getWeatherCard() {
       elem.insertAdjacentHTML('afterend', newMarkup);
     }
   });
-  // getGeoposition();
+  getGeoposition();
 }
 
 function fetchWeatherByCity(cityName) {

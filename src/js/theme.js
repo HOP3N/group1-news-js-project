@@ -5,6 +5,7 @@ themeSwitcher.checked = false;
 
 
 function clickHandler() {
+  console.log(clickHandler);
   if (this.checked) {
     document.body.classList.remove('light');
     document.body.classList.add('dark');
@@ -22,6 +23,7 @@ function clickHandler() {
     imageSwitcher[1].classList.remove('active');
     imageSwitcher[0].classList.add('active');
   }
+
 }
 
 function checkTheme() {

@@ -35,36 +35,22 @@ function createMarkupByInput(array) {
           'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
       }
 
-      return `<li class="news-item">
-                <div class="news-thumb">
-                <img
-                    class="img-news"
-                    src="${imageBase}"
-                    alt="${data.byline}"
-                    width="395"
-                    height="395"
-                />
-                <p class="filter-descr">${data.section_name}</p>
-                <button class="link-add"
-                    >Add to favorite
-                    <svg class="add-icon" width="16" heigth="16">
-                    <use href="${svg}#heart-filled"></use>
-                    </svg>
-                </button>
-                </div>
-                <div class="desr">
-                <h2 class="title">
-                    ${data.headline.main}
-                </h2>
-                <p class="subtitle">
-                    ${data.abstract}
-                </p>
-                <div class="other-line">
-                    <p class="date">${replaceDat}</p>
-                    <p class="hyperlink"><a href="${data.web_url} target="_blank" rel="noopener noreferrer" ">Read more</a></p>
-                </div>
-                </div>
-              </li>`;
+      return `<li class = "card__item" data-id = "${data.uri}">
+                    <div class="card__wrapper">
+                      <div class="card__thumb">
+                        <img class="card__img" src = "${imageBase}" alt = "${data.byline}">
+                        <p class="card__news-category">${data.section_name}</p>
+                        <p class="card__text-read">Already read</p>
+                        <button class="favorite-btn" type="button" data-action="favorite-btn">Add to favorite</button>
+                      </div>
+                      <h3 class="card__news-title">${data.headline.main}</h3>
+                      <p class="card__news-description">${data.abstract}</p>
+                      <div class="card__additional-info-container">
+                        <p class="card__datetime">${replaceDat}</p>
+                        <a class="card__link" href="${data.web_url}" target="_blank" rel="noopener noreferrer nofollow">Read more</a>
+                      </div>
+                    </div>
+                </li>`;
     })
     .join('');
 }

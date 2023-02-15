@@ -218,8 +218,8 @@ const refs = {
 saveCategories();
 categoriesOnResize();
 categoriesOnPageLoad();
-refs.categoriesBtnMenu.addEventListener('mouseenter', showCategoriesList);
-refs.menu.addEventListener('mouseleave', showCategoriesList);
+// refs.categoriesBtnMenu.addEventListener('mouseenter', showCategoriesList);
+// refs.menu.addEventListener('mouseleave', showCategoriesList);
 function saveCategories() {
   newsFetch.getCategories().then(results => {
     localStorage.setItem('results', JSON.stringify(results));
@@ -300,8 +300,15 @@ function markupCategoriesInList(arrCategories, begin, end) {
     .map(result => `<li class="categories__item" data-value="${result.section}">${result.display_name}</li>`)
     .join(' ');
 }
+
+refs.categoriesBtnMenu.addEventListener(`click`, showCategoriesList);
+
 function showCategoriesList() {
   refs.categoriesIconUp.classList.toggle('invisible');
   refs.categoriesIconDown.classList.toggle('invisible');
   refs.categoriesMenu.classList.toggle('invisible');
 }
+
+
+
+

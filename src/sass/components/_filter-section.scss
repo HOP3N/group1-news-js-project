@@ -451,7 +451,7 @@
 
 .categories {
   display: flex;
-  margin-right: 24px;
+  
   @media screen and (min-width: $tablet) {
     margin-right: 40px;
     gap: 14px;
@@ -460,8 +460,13 @@
     margin-right: 0;
     gap: 16px;
   }
+  @media screen and (min-width: $desktop) {
+    margin-right: 0;
+    gap: 16px;
+  }
   &__btn-list {
     display: flex;
+    
     list-style-type: none;
     @media screen and (min-width: $tablet) {
       gap: 14px;
@@ -472,6 +477,7 @@
   }
   &__btn {
     display: none;
+    cursor: pointer;
     @media screen and (min-width: $tablet) {
       display: flex;
       justify-content: center;
@@ -487,6 +493,8 @@
     }
   }
   &__btn-menu {
+    cursor: pointer;
+    margin-right: -133px;
     padding: 8px 21px;
     height: 31px;
     font-weight: 400;
@@ -495,6 +503,9 @@
     color: var(--accent-color);
     border: 1px solid var(--accent-color);
     border-radius: 20px;
+    @media screen and (min-width: $tablet) {
+      margin-right: -110px;
+    }
   }
   &__btn:hover,
   &__btn-menu:hover {
@@ -508,7 +519,7 @@
   }
   &__icon-up,
   &__icon-down {
-    fill: var(--white-color);
+    fill: var(--accent-color);
     margin-left: 10px;
   }
   &__btn-menu:hover &__icon-up,
@@ -522,10 +533,11 @@
   &__menu {
     display: inline-block;
     padding: 14px 14px 0 14px;
+    margin-top: 31px;
     overflow: auto;
     position: absolute;
     z-index: 1;
-    background-color: #F8F8F8;
+    background-color: #ffff;
     color: var(--accent-color);
     border-radius: 20px;
     height: 383px;
@@ -535,7 +547,6 @@
       padding-left: 24px;
       padding-right: 24px;
     }
-  }
   &__list {
     overflow: auto;
     list-style-type: none;
@@ -550,6 +561,7 @@
     letter-spacing: 0.01em;
     cursor: pointer;
   }
+}
   &__item:hover {
     text-decoration: underline;
   }

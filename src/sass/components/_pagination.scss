@@ -1,6 +1,9 @@
 
 // container
 .page-container {
+  padding-top: 40px;
+  padding-bottom: 60px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,12 +11,14 @@
   // width: 288px;
   // height: 28px;
   margin-top: 2rem;
-  // position: absolute;
   @media screen and (min-width: $tablet) {
-    // width: 415px;
-    // height: 31px;
+    padding-top: 48px;
+    padding-bottom: 100px;
   }
-  
+  @media screen and (min-width: $desktop) {
+    padding-top: 60px;
+    padding-bottom: 150px;
+  }
 }
 
 //PREW

@@ -24,13 +24,14 @@ function getCardsList() {
         results.forEach(card => {
           const imgUrl = card.media.length
             ? card.media[0]['media-metadata'][2].url
-            : '';
-          const imgCaption = card.media.length ? card.media[0].caption : '';
+            : "../images/news.jpg";
+          const imgCaption = card.media.length ? card.media[0].caption : 'News';
+
           html += `<li class = "card__item" data-id = "${card.uri}">
     <div class="card__wrapper">
       <div class="card__thumb">
         <img class="card__img" src = "${imgUrl}" alt = "${imgCaption}">
-        <p class="card__news-category">${card.section_name}</p>
+        <p class="card__news-category">${card.section}</p>
         <p class="card__text-read">Already read</p>
         <button class="favorite-btn" type="button" data-action="favorite-btn">Add to favorite</button>
       </div>

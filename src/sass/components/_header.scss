@@ -8,12 +8,14 @@
   align-items: center;
   padding-top: 24px;
   padding-bottom: 24px;
-  justify-content: space-between;
+
   @media screen and (min-width: $tablet) {
     align-items: center;
+    justify-content: space-between;
   }
 }
 .logo {
+  margin-right: auto;
   text-decoration: none;
   color: var(--text-color);
   font-family: Manrope;
@@ -23,6 +25,7 @@
 
   @media screen and (min-width: $tablet) {
     font-size: 32px;
+    margin-right: 0px;
   }
   @media screen and (min-width: $desktop) {
     font-size: 42px;
@@ -41,11 +44,9 @@
   }
 
   @media screen and (min-width: $desktop) {
-   gap: 64px;
+    gap: 64px;
   }
 }
-
-
 
 .nav__link {
   text-decoration: none;
@@ -168,8 +169,8 @@
   border: 0px;
   background-color: transparent;
   padding: 0px;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
 
   @media screen and (min-width: $tablet) {
     display: none;

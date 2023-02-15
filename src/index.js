@@ -1,9 +1,9 @@
-import './js/add-to-favorite';
+// import './js/add-to-favorite';
 import './js/api';
 import './js/calendar';
 import './js/get-card-list-popular';
 import './js/get-card-list-search';
-import './js/get-card-list';
+// import './js/get-card-list';
 import './js/get-popular';
 import './js/get-search';
 import './js/header';

@@ -1,8 +1,10 @@
 details {
   padding: 20px 16px;
 }
-.content {
+.content-read {
   padding: 28px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 summary::-webkit-details-marker {
   display: none;

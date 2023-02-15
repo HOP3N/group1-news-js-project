@@ -35,6 +35,7 @@ function checkTheme() {
     themeSwitcher.checked = true;
     textSwitcher[1].classList.add('active-text');
     imageSwitcher[1].classList.add('active-text');
+    imageSwitcher[1].classList.add('active-icon')
   } else {
     textSwitcher[1].classList.remove('active-text');
     imageSwitcher[1].classList.remove('active-icon');

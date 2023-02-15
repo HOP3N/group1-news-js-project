@@ -32,7 +32,7 @@ function createCardItem(card) {
   console.log(card);
   const imgUrl = card.media.length
     ? card.media[0]['media-metadata'][2].url
-    : '';
+    : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
   const imgCaption = card.media.length ? card.media[0].caption : '';
   return `<li class = "card__item" data-id = "${card.uri}">
   <div class="card__wrapper">

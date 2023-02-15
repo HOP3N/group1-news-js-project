@@ -72,7 +72,6 @@ width: 100%;
 }
 
 .favorite-btn {
-
   position: absolute;
   bottom: 12px;
   right: 12px;
@@ -99,13 +98,13 @@ width: 100%;
   margin-left: 4px;
 }
 
-// .favorite-btn__active::after {
-//   content: '';
-//   width: 16px;
-//   height: 16px;
-//   background-image: url("../images/heart-icon-filled.svg");
-//   margin-left: 4px;
-// }
+.removeFavorite-btn::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-image: url("../images/heart-icon-filled.svg");
+  margin-left: 4px;
+}
 
 .card__text-read {
   position: absolute;

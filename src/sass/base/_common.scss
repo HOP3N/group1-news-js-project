@@ -1,5 +1,19 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+::-webkit-scrollbar {
+  width: 0rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 0.5rem;
+  &:hover {
+    background-color: white;
+  }
+}
+
 ul {
   list-style: none;
   padding: 0;

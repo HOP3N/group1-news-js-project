@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,10 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
-    <title>Document</title>
+    <title>Favorite</title>
   </head>
   <body>
-    <include src="./partials/header.html"></include>
+    <header class="header">
+      <div class="container">
+        <nav class="header__container">
+          <a href="index.html" class="logo">News</a>
+          <ul class="nav__list list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="./favorite.html" class="nav__link nav__link--current">Favorite</a>
+            </li>
+            <li class="nav__item">
+              <a href="./read.html" class="nav__link">Read</a>
+            </li>
+          </ul>
+    
+    
+    
+           <div class="search-container">
+            <form class="search-form" id="search-form">
+              <input
+                type="text"
+                name="searchQuery"
+                autocomplete="off"
+                placeholder="Search |"
+                class="search-input"
+                id="placeholder"
+              />
+              <button type="button" class="search-button">
+                <svg class="icon-search">
+                  <use href="/src/images/sprite.svg#search"></use>
+                </svg>
+              </button>
+            </form>
+          </div> 
+    
+    
+    
+    
+    
+          <button
+            class="burger-btn js-open-menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg
+              class="burger-icon"
+              width="
+                    40px"
+              height="
+                    40px"
+            >
+              <use
+                href="/src/images/sprite.svg#icon-burger"
+                class="burger-menu"
+              ></use>
+            </svg>
+          </button>
+    
+          <div class="toggle-theme">
+            <svg class="toggle-theme__icon" width="19px" height="19px">
+              <use href="/src/images/sprite.svg#icon-sun" class="burger-menu"></use>
+            </svg>
+            <span class="toggle-theme__text">Light</span>
+            <label class="switch">
+              <input id="theme-switch" type="checkbox" class="toggle-switch">
+              <span class="slider round"></span>
+            </label>
+            <svg class="toggle-theme__icon" width="19px" height="19px">
+              <use href="/src/images/sprite.svg#icon-moon" class="burger-menu"></use>
+            </svg>
+            <span class="toggle-theme__text">Dark</span>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
     <main>
       <section>
         <div class="container js_detalis_fav"></div>
@@ -19,4 +95,4 @@
     <script src="./js/read.js" type="module"></script>
     <script src="./js/get-card-list-popular.js" type="module"></script>
   </body>
-</html> -->
+</html>

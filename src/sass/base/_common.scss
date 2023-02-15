@@ -36,7 +36,13 @@ img {
 a {
   display: inline-block;
   text-decoration: none;
+  cursor: url('./../images/cursor.svg'), pointer !important;
 }
+
+button {
+  cursor: url('./../images/cursor.svg'), pointer !important;
+}
+
 .container {
   padding: 0 16px;
   margin: 0 auto;

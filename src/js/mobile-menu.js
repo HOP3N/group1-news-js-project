@@ -26,25 +26,25 @@
   });
 })();
 
-
 // Mobile-change-theme
 
 const themeSwitcherMobile = document.getElementById('theme-switch-mobile');
-
+const imageSwitcherMobile = document.querySelectorAll('.toggle-theme__icon-mobile');
 themeSwitcherMobile.checked = false;
-
 
 function clickHandlerMobile() {
   if (this.checked) {
     document.body.classList.remove('light');
     document.body.classList.add('dark');
     localStorage.setItem('theme', 'dark');
-   
+    imageSwitcherMobile[0].classList.remove('active-icon');
+    imageSwitcherMobile[1].classList.add('active-icon');
   } else {
     document.body.classList.add('light');
     document.body.classList.remove('dark');
     localStorage.setItem('theme', 'light');
-    
+    imageSwitcherMobile[1].classList.remove('active-icon');
+    imageSwitcherMobile[0].classList.add('active-icon');
   }
 }
 
@@ -57,7 +57,11 @@ function checkThemeMobile() {
   // adjust the slider position
   if (localStorageTheme === 'dark') {
     themeSwitcherMobile.checked = true;
-    }
+    imageSwitcherMobile[1].classList.add('active-icon');
+  } else {
+    imageSwitcherMobile[1].classList.remove('active-icon');
+    imageSwitcherMobile[0].classList.add('active-icon');
+  }
 }
 
 themeSwitcherMobile.addEventListener('change', clickHandlerMobile);

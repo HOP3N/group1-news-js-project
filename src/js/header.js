@@ -3,5 +3,5 @@ const searchInput = document.querySelector('.search-input');
 
 
 iconSearch.onclick = function(){
-    searchInput.classList.toggle('active')
+    searchInput.classList.toggle('active-input')
 }

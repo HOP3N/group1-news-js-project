@@ -10,7 +10,7 @@
   padding-bottom: 24px;
   justify-content: space-between;
   @media screen and (min-width: $tablet) {
-    align-items: baseline;
+    align-items: center;
   }
 }
 .logo {
@@ -22,12 +22,9 @@
   line-height: 1.37;
 
   @media screen and (min-width: $tablet) {
-    max-width: 768px;
-    margin-right: 48px;
     font-size: 32px;
   }
   @media screen and (min-width: $desktop) {
-    margin-right: 102px;
     font-size: 42px;
   }
 }
@@ -39,23 +36,16 @@
 
   @media screen and (min-width: $tablet) {
     max-width: 768px;
-    margin-right: 32px;
+    gap: 44px;
     display: flex;
   }
 
   @media screen and (min-width: $desktop) {
-    margin-right: 140px;
+   gap: 64px;
   }
 }
 
-.nav__item:not(:last-child) {
-  @media screen and (min-width: $tablet) {
-    margin-right: 44px;
-  }
-  @media screen and (min-width: $desktop) {
-    margin-right: 69px;
-  }
-}
+
 
 .nav__link {
   text-decoration: none;
@@ -75,7 +65,7 @@
   border: 1px solid #4440f7;
   background-color: rgba(68, 64, 246, 1);
   position: absolute;
-  top: 35px;
+  top: 27px;
   left: 0;
 }
 
@@ -83,18 +73,9 @@
 
 .search-container {
   position: relative;
-  margin-right: 14px;
   transition: 0.5s;
   background: transparent;
   overflow: hidden;
-
-  @media screen and (min-width: $tablet) {
-    margin-right: 24px;
-  }
-
-  @media screen and (min-width: $desktop) {
-    margin-right: 147px;
-  }
 }
 
 .search-container.active {
@@ -116,6 +97,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: calc(21 / 12);
+  color: var(--text-color);
 
   background-color: transparent;
   border: 1px solid var(--text-color);
@@ -135,7 +117,7 @@
   }
 }
 
-.search-input.active {
+.search-input.active-input {
   opacity: 1;
 }
 
@@ -185,6 +167,9 @@
 .burger-btn {
   border: 0px;
   background-color: transparent;
+  padding: 0px;
+  width: 24px;
+  height: 24px;
 
   @media screen and (min-width: $tablet) {
     display: none;
@@ -272,14 +257,16 @@ input:checked + .slider:before {
 }
 
 .toggle-theme__icon {
-  fill: var(--dark-theme-name-color);
+  fill: none;
+  stroke: var(--dark-theme-name-color);
+  width: 21px;
+  height: 21px;
 
   @media screen and (min-width: $desktop) {
     display: none;
-    
   }
-  &.active {
-    fill: #4b48db;
+  &.active-icon {
+    stroke: #4b48db;
   }
 }
 
@@ -297,12 +284,11 @@ input:checked + .slider:before {
   }
 }
 
-.toggle-theme__text.active {
+.toggle-theme__text.active-text {
   color: #4b48db;
 }
 
-
 body {
   background: var(--body-color);
-  color: var(--text-color)
+  color: var(--text-color);
 }

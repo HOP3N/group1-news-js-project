@@ -83,11 +83,10 @@
 .mobile-menu__item {
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  padding: 6px 16px;
   color: var(--text-color);
   height: 44px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+ 
 
   &.current {
     background-color: var(--accent-color);
@@ -96,7 +95,6 @@
   &:hover {
     background-color: var(--accent-color);
   }
-
 }
 
 .mobile-menu__icon {
@@ -112,7 +110,8 @@
 
   &.current {
     display: flex;
-    fill: var(--text-color);
+    stroke: #f4f4f4;
+    fill: var(--accent-color);
   }
 }
 
@@ -134,3 +133,12 @@
   gap: 10px;
   margin-left: 16px;
 }
+
+.toggle-theme__icon-mobile {
+  fill: none;
+  stroke: var(--dark-theme-name-color);
+  &.active-icon {
+    stroke: var(--accent-color);
+  }
+}
+

@@ -154,51 +154,54 @@ function createMarkupIfFoundNothing() {
   sectionPaginationEl.innerHTML = '';
 }
 
-export class API{
-  #BASE_URL = "https://api.nytimes.com/svc/";
-  #API_KEY = "SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX";
+export class API {
+  #BASE_URL = 'https://api.nytimes.com/svc/';
+  #API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
   #period;
   #query;
   #beginDate;
   #page;
   #offset;
   #params = {
-      "api-key":this.#API_KEY,
-      q: this.#query,
-      page: this.#page,
-      begin_date: this.#beginDate,
+    'api-key': this.#API_KEY,
+    q: this.#query,
+    page: this.#page,
+    begin_date: this.#beginDate,
+  };
+  async getCategories() {
+    const response = await fetch(
+      this.#BASE_URL +
+        `news/v3/content/section-list.json?api-key=${this.#API_KEY}`
+    );
+    if (!response.ok) {
+      throw new Error(error);
+    }
+    const { results } = await response.json();
+    return results;
   }
-  async getCategories(){
-      const response = await fetch(this.#BASE_URL + `news/v3/content/section-list.json?api-key=${this.#API_KEY}`)
-      if(!response.ok){
-          throw new Error(error);
-      }
-      const {results} =  await response.json();
-      return results;
+  get query() {
+    return this.#query;
   }
-  get query(){
-      return this.#query;
+  set query(newQuery) {
+    this.#query = newQuery;
   }
-  set query(newQuery){
-      this.#query = newQuery;
+  updatePage() {
+    this.#page++;
   }
-  updatePage(){
-      this.#page++;
+  resetPage() {
+    this.#page = 1;
   }
-  resetPage(){
-      this.#page = 1;
+  get date() {
+    this.#beginDate;
   }
-  get date(){
-      this.#beginDate;
+  set date(newDate) {
+    this.#beginDate = newDate;
   }
-  set date(newDate){
-      this.#beginDate = newDate;
+  updateOffset() {
+    this.#offset += 20;
   }
-  updateOffset(){
-      this.#offset += 20;
-  }
-  resetOffset(){
-      this.#offset = 0;
+  resetOffset() {
+    this.#offset = 0;
   }
 }
 const newsFetch = new API();
@@ -297,7 +300,10 @@ function markupCategoriesInBtn(arrCategories, begin, end) {
 function markupCategoriesInList(arrCategories, begin, end) {
   return arrCategories
     .slice(begin, end)
-    .map(result => `<li class="categories__item" data-value="${result.section}">${result.display_name}</li>`)
+    .map(
+      result =>
+        `<li class="categories__item" data-value="${result.section}">${result.display_name}</li>`
+    )
     .join(' ');
 }
 
@@ -309,6 +315,80 @@ function showCategoriesList() {
   refs.categoriesMenu.classList.toggle('invisible');
 }
 
+// =========================== Загрузка новостей по категориям
 
+const categoryBtn = document.querySelector('.categories__btn-list');
+const listCategoriesBtn = document.querySelector('.categories__menu');
+const sectionNewsEl = document.querySelector('.card');
+const newsListEl = document.querySelector('.card__list');
 
+categoryBtn.addEventListener('click', onClickBtn);
+listCategoriesBtn.addEventListener('click', onClickBtn);
 
+function onClickBtn(e) {
+  // e.target.value
+  console.log(e.target);
+
+  const category = e.target.dataset.value;
+
+  fetch(
+    `https://api.nytimes.com/svc/news/v3/content/nyt/${category}.json?api-key=SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX`
+  )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(({ results }) => {
+      if (results === null) {
+        createMarkupIfEmpty();
+        return;
+      }
+
+      return results
+        .map(data => {
+          let fromatedSubTitle = data.abstract.slice(0, 120) + `...`;
+          let formatedTitle = data.title.slice(0, 60) + `...`;
+          let formattedDate = data.created_date.toString().slice(0, 10);
+          let replaceDat = formattedDate.replace(`-`, '/').replace(`-`, '/');
+
+          let imageStart;
+          let imageBase;
+
+          if (data.multimedia.length > 0) {
+            imageBase = data.multimedia[2].url;
+          } else if (data.multimedia.length === 0) {
+            imageBase =
+              'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+          }
+
+          return `<li class = "card__item" data-id = "${data.uri}">
+                    <div class="card__wrapper">
+                      <div class="card__thumb">
+                        <img class="card__img" src = "${imageBase}" alt = "${data.byline}">
+                        <p class="card__news-category">${data.section}</p>
+                        <button class="favorite-btn" type="button" data-action="favorite-btn">Add to favorite</button>
+                      </div>
+                      <h3 class="card__news-title">${formatedTitle}</h3>
+                      <p class="card__news-description">${fromatedSubTitle}</p>
+                      <div class="card__additional-info-container">
+                        <p class="card__datetime">${replaceDat}</p>
+                        <a class="card__link" href="${data.url}" target="_blank" rel="noopener noreferrer nofollow">Read more</a>
+                      </div>
+                    </div>
+                </li>`;
+        })
+        .join('');
+    })
+    .then(markup => (newsListEl.innerHTML = markup));
+}
+
+function createMarkupIfEmpty() {
+  const markup = `<div class="section-news__wrapper">
+                    <h2 class="section-news__title">We haven’t found news from this category</h2>
+                    <img src="${imgOps}" alt="Ooooops" class="news-section__img-if-empty"/>
+                    </div>`;
+  sectionNewsEl.innerHTML = markup;
+  sectionPaginationEl.innerHTML = '';
+}

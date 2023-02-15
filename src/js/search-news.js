@@ -43,7 +43,6 @@ function createMarkupByInput(array) {
                       <div class="card__thumb">
                         <img class="card__img" src = "${imageBase}" alt = "${data.byline}">
                         <p class="card__news-category">${data.section_name}</p>
-                        <p class="card__text-read">Already read</p>
                         <button class="favorite-btn" type="button" data-action="favorite-btn">Add to favorite</button>
                       </div>
                       <h3 class="card__news-title">${data.headline.main}</h3>

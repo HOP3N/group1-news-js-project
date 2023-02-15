@@ -4,7 +4,7 @@ import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
 import { setItemToLocalStorage } from './add-read';
 // import { getArticleByCategory } from './api';
-import { getWeatherCard } from './weather'; 
+import { getWeatherCard } from './weather';
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
@@ -24,7 +24,7 @@ function getCardsList() {
         results.forEach(card => {
           const imgUrl = card.media.length
             ? card.media[0]['media-metadata'][2].url
-            : "../images/news.jpg";
+            : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
           const imgCaption = card.media.length ? card.media[0].caption : 'News';
 
           html += `<li class = "card__item" data-id = "${card.uri}">
@@ -32,7 +32,7 @@ function getCardsList() {
       <div class="card__thumb">
         <img class="card__img" src = "${imgUrl}" alt = "${imgCaption}">
         <p class="card__news-category">${card.section}</p>
-        <p class="card__text-read">Already read</p>
+        
         <button class="favorite-btn" type="button" data-action="favorite-btn">Add to favorite</button>
       </div>
       <h3 class="card__news-title">${card.title}</h3>

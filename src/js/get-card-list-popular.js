@@ -62,7 +62,7 @@ function getCardsList() {
 }
 getCardsList();
 
-// cardList.addEventListener('click', addToFavorite);
+cardList.addEventListener('click', addToFavorite);
 cardList.addEventListener('click', addToReadyRead);
 
 //----------------------------
@@ -172,11 +172,11 @@ function addToReadyRead(e) {
     setItemToLocalStorage(cardObj);
   }
 }
-// function addToFavor(e) {
-//   if (e.target.className === 'favorite-btn') {
-//     let cardItemFav =
-//       e.target.parentElement.parentElement.parentElement.dataset.id;
-//     const crdObjFav = dataBase.find(el => el.uri === cardItemFav);
-//     setItemToLocalStorageFav(crdObjFav);
-//   }
-// }
+function addToFavor(e) {
+  if (e.target.className === 'favorite-btn') {
+    let cardItemFav =
+      e.target.parentElement.parentElement.parentElement.dataset.id;
+    const crdObjFav = dataBase.find(el => el.uri === cardItemFav);
+    setItemToLocalStorageFav(crdObjFav);
+  }
+}

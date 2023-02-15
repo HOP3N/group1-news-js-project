@@ -2,19 +2,23 @@ import dateFormat, { masks } from 'dateformat';
 import { addToFavorite } from './add-to-favorite';
 import { setFavoritesOnLoad } from './set-favorites-on-load';
 import { getPopular } from './get-popular';
+import { setItemToLocalStorage } from './add-read';
+// import { getArticleByCategory } from './api';
+import { getWeatherCard } from './weather'; 
 
 const cardList = document.getElementById('cards');
 const BASE_URL = 'https://api.nytimes.com/svc';
 const API_KEY = 'SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 const POPULAR_URL = '/mostpopular/v2/viewed/1.json?api-key=';
 const temp = getPopular();
-console.log(temp);
-
+// console.log(temp);
+let dataBase = null;
 function getCardsList() {
   fetch(`${BASE_URL}${POPULAR_URL}${API_KEY}`)
     .then(response => response.json())
     .then(({ results }) => {
-      console.log(results);
+      // console.log(results);
+      dataBase = results;
       let html = '';
       if (results) {
         results.forEach(card => {
@@ -51,47 +55,127 @@ function getCardsList() {
         cardList.classList.add('notFound');
       }
       cardList.innerHTML = html;
+      getWeatherCard();
       setFavoritesOnLoad();
     });
 }
 getCardsList();
 
-cardList.addEventListener('click', addToFavorite);
-cardList.addEventListener('click', addToAlreadyRead);
+// cardList.addEventListener('click', addToFavorite);
+cardList.addEventListener('click', addToReadyRead);
 
 //----------------------------
+// function addToAlreadyRead(e) {
+//   if (e.target.className === 'card__link') {
+//     let cardItem =
+//       e.target.parentElement.parentElement.parentElement.dataset.id;
+//     const cardObj = dataBase.find(el => el.uri === cardItem);
 
-function addToAlreadyRead(e) {
-  console.log(e.target.dataset);
-  if (e.target.dataset.action === 'card__link') {
+//     console.log(cardObj);
+//   }
+// }
+
+// const cardEl = document.querySelector('.js_detalis');
+// const LOCAL_STORAGE_KEY = 'read_key'; //клю для локалстореджа
+// //Проверка наличия данных в локалсторедж и запись новых данных
+// function setItemToLocalStorage(item) {
+//   const dataLocalStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
+//   //Конвертация формата даты в вид 00/00/00
+//   const currentData = new Date();
+//   const currentDataString = `${currentData.getDate()}/${
+//     currentData.getMonth() + 1
+//   }/${currentData.getFullYear()}`; // *******
+
+//   if (!dataLocalStorage) {
+//     const newData = [{ data: currentDataString, items: [item] }];
+//     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newData));
+//     return;
+//   }
+
+//   const dataArr = JSON.parse(dataLocalStorage);
+
+//   let goodDataFlag = true; //флаг проверки записи в локалсторедж
+
+//   const newDataArr = dataArr.map(elItem => {
+//     if (elItem.data === currentDataString) {
+//       goodDataFlag = false;
+//       elItem.items.push(item);
+//       return elItem;
+//     }
+//     return elItem;
+//   });
+
+//   if (goodDataFlag) {
+//     newDataArr.push({ data: currentDataString, items: [item] });
+//   }
+
+//   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newDataArr));
+// }
+// setItemToLocalStorage({});
+// const createCardItem = data => {
+//   return `<summary>${data}</summary>`;
+//   const macCard = ({ id, text }) => {
+//     return `<div>
+//     <p>${id}</p>
+//     <p>${text}</p>
+//     </div>
+//     `;
+//   };
+// };
+// *********************************
+// const cardElFav = document.querySelector('.js_detalis-fav');
+// const FAV_LOCAL_STORAGE_KEY = 'fav_key'; //клю для локалстореджа
+// //Проверка наличия данных в локалсторедж и запись новых данных
+// function setItemToLocalStorageFav(item) {
+//   const dataLocalStorage = localStorage.getItem(FAV_LOCAL_STORAGE_KEY);
+//   //Конвертация формата даты в вид 00/00/00
+//   const currentData = new Date();
+//   const currentDataString = `${currentData.getDate()}/${
+//     currentData.getMonth() + 1
+//   }/${currentData.getFullYear()}`; // *******
+
+//   if (!dataLocalStorage) {
+//     const newData = [{ data: currentDataString, items: [item] }];
+//     localStorage.setItem(FAV_LOCAL_STORAGE_KEY, JSON.stringify(newData));
+//     return;
+//   }
+
+//   const dataArr = JSON.parse(dataLocalStorage);
+
+//   let goodDataFlag = true; //флаг проверки записи в локалсторедж
+
+//   const newDataArr = dataArr.map(elItem => {
+//     console.dir(elItem, 'ffsdafsa');
+//     if (elItem.data === currentDataString) {
+//       goodDataFlag = false;
+//       elItem.items.push(item);
+//       return elItem;
+//     }
+//     return elItem;
+//   });
+
+//   if (goodDataFlag) {
+//     newDataArr.push({ data: currentDataString, items: [item] });
+//   }
+
+//   localStorage.setItem(FAV_LOCAL_STORAGE_KEY, JSON.stringify(newDataArr));
+// }
+// setItemToLocalStorageFav();
+// *****************************************
+
+function addToReadyRead(e) {
+  if (e.target.className === 'card__link') {
     let cardItem =
       e.target.parentElement.parentElement.parentElement.dataset.id;
-    console.log(e.target.parentElement.parentElement.dataset.id);
-    const favorites = JSON.parse(localStorage.getItem('read')) || [];
-
-    if (e.target.classList.contains('removeFavorite-btn')) {
-      console.log(e.target.dataset.action);
-      const updatedFavorites = favorites.filter(id => id !== cardItem);
-      localStorage.setItem('read', JSON.stringify(updatedFavorites));
-      // e.target.textContent = "Add to favorites";
-      // e.target.classList.remove("removeFavorite-btn");
-    } else {
-      favorites.push(cardItem);
-      localStorage.setItem('read', JSON.stringify(favorites));
-      // e.target.textContent = "Remove from favorites";
-      // e.target.classList.add("removeFavorite-btn");
-    }
+    const cardObj = dataBase.find(el => el.uri === cardItem);
+    setItemToLocalStorage(cardObj);
   }
 }
-
-function setAlreadyReadOnLoad() {
-  const favorites = JSON.parse(localStorage.getItem('read')) || [];
-
-  favorites.forEach(id => {
-    const cardItem = document.querySelector(`[data-id="${id}"]`);
-    const favoriteBtn = cardItem.querySelector("[data-action='favorite-btn']");
-
-    favoriteBtn.classList.add('removeFavorite-btn');
-    favoriteBtn.textContent = 'Remove from fav';
-  });
-}
+// function addToFavor(e) {
+//   if (e.target.className === 'favorite-btn') {
+//     let cardItemFav =
+//       e.target.parentElement.parentElement.parentElement.dataset.id;
+//     const crdObjFav = dataBase.find(el => el.uri === cardItemFav);
+//     setItemToLocalStorageFav(crdObjFav);
+//   }
+// }

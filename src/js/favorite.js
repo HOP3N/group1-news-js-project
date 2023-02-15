@@ -1,7 +1,7 @@
 // Выемка данных из локалстореджа
 const cardEl = document.querySelector('.js_detalis');
 import dateFormat, { masks } from 'dateformat';
-const LOCAL_STORAGE_KEY = 'read_key';
+const LOCAL_STORAGE_KEY = 'fav_key';
 function getItemFromLocalStorage() {
   const dataLocalStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (!dataLocalStorage) {
@@ -57,25 +57,3 @@ function createCardItem(card) {
   </div>
 </li>`;
 }
-
-// при открытии следующей закрывается предыдущая
-// var details = document.querySelectorAll('details');
-// for (i = 0; i < details.length; i++) {
-//   details[i].addEventListener('toggle', accordion);
-// }
-// function accordion(event) {
-//   if (!event.target.open) return;
-//   var details = event.target.parentNode.children;
-//   for (i = 0; i < details.length; i++) {
-//     if (
-//       details[i].tagName != 'DETAILS' ||
-//       !details[i].hasAttribute('open') ||
-//       event.target == details[i]
-//     ) {
-//       continue;
-//     }
-//     details[i].removeAttribute('open');
-//   }
-// }
-
-// ********************************************************

@@ -34,12 +34,19 @@ export const loadNews = () => {
 const apiKey = 'api-key=SVYGfSzYyEfqvl2Rz9D9zXBCipJV7rQX';
 const BASE_URL = 'https://api.nytimes.com/svc';
 // const loadNews = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?${apiKey}`;
+function updateNews(news) {
+  return [...news].splice(
+    this.perPage * (this.currentPage - 1),
+    this.perPage
+  );
 
+}
 async function getPopularArticle() {
   const articleFetch = await fetch(loadNews);
   const articles = await articleFetch.json();
   let { results } = articles;
-  
+
+  updateNews(results);
   return results;
 }
 
@@ -49,9 +56,7 @@ async function getCategoryList() {
   );
   const categories = await categoryList.json();
   let { results } = categories;
-
-
-
+  
   return results;
 }
 

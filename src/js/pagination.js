@@ -31,11 +31,6 @@ function removeLoader() {
 
 let news = [];
 
-// const localNews = [];
-
-// for (let i = 0; i < 8 * 20; i++) {
-//     localNews.push(i);
-// };
 appendLoader();
 
 loadNews()
@@ -57,6 +52,8 @@ loadNews()
       perPage: 4,
     };
 
+ 
+    
     if (deviceWidth <= mobileWidth) {
       result.perPage = 4;
     } else if (deviceWidth > mobileWidth && deviceWidth <= tabletWidth) {
@@ -64,14 +61,7 @@ loadNews()
     } else {
       result.perPage = 8;
     }
-// const updatePerPage = offset;
-// if (updatePerPage<=mobileWidth) {
-//   updatePerPage.slice(0,5);
-//     } else if(updatePerPage = deviceWidth > mobileWidth && deviceWidth <= tabletWidth){
-//   updatePerPage.slice(0,8);
-// } else {
-//   updatePerPage.slice(0, 9);
-// }
+
     result.totalPages = Math.ceil(news.length / result.perPage);
 
     pg.innerHTML = '';
@@ -137,6 +127,8 @@ pg.addEventListener('click', e => {
     handleBtnRight();
   }
 });
+
+
 
 function pagination(totalPages) {
   const { currentPage, numLinksTwoSide: delta } = valuePage;

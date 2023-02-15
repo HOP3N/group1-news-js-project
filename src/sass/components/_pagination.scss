@@ -2,17 +2,18 @@
 // container
 .page-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 288px;
-  height: 28px;
+  gap: 8px;
+  // width: 288px;
+  // height: 28px;
   margin-top: 2rem;
-  position: absolute;
+  // position: absolute;
   @media screen and (min-width: $tablet) {
-    width: 415px;
-    height: 31px;
+    // width: 415px;
+    // height: 31px;
   }
-  /* flex-wrap: wrap; */
-  //  justify-content: flex-start;
+  
 }
 
 //PREW
@@ -98,6 +99,7 @@
 .pagination {
   display: flex;
   list-style: none;
+  gap: 8px;
 }
 
 //li
@@ -107,7 +109,7 @@
   cursor: pointer;
   /* border-radius: 5px; */
   overflow: hidden;
-  margin: 0 8px;
+  // margin: 0 8px;
   width: 28px;
   height: 28px;
       border-radius: 2px;

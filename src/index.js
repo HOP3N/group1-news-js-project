@@ -13,7 +13,6 @@ import './js/mobile-menu';
 import './js/modal';
 import './js/offset';
 import './js/pagination';
-import './js/read';
 import './js/search-news';
 import './js/set-favorites-on-load';
 import './js/theme';

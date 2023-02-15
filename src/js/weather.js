@@ -1,26 +1,24 @@
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { format } from 'date-fns';
 
-const weatherContainer = document.querySelector('.card__list');
+const weatherItem = document.querySelector('.card__list');
 
 const WEATHER_API_KEY = 'bf0cd5a153ab38d36794a1aaec126d4f';
 const WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather';
-
-
 
 export function getWeatherCard() {
   fetchWeatherByCity('London').then(response => {
     const newMarkup = createWeatherMarkup(response);
     if (window.matchMedia("(max-width: 767.96px)").matches) {
-      const elem = weatherContainer.children[0];
+      const elem = weatherItem.children[0];
       elem.insertAdjacentHTML('beforebegin', newMarkup);
 
     } else if (window.matchMedia("(min-width: 1279.98px)").matches) {
-      const elem = weatherContainer.children[1];
+      const elem = weatherItem.children[1];
       elem.insertAdjacentHTML('afterend', newMarkup);
 
     } else {
-      const elem = weatherContainer.children[0];
+      const elem = weatherItem.children[0];
       elem.insertAdjacentHTML('afterend', newMarkup);
     }
   });
